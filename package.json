@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/SparkLv/blog/issues"
   },
-  "homepage": "https://github.com/SparkLv/blog#readme"
+  "homepage": "https://github.com/SparkLv/blog#readme",
+  "dependencies": {
+    "webpack-merge": "^4.1.2"
+  }
 }
