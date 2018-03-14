@@ -6,6 +6,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = merge(common, {
+    devtool: 'source-map',    
     output: {
         filename: 'static/js/[name].bundle.[chunkhash:8].js',
         //path为绝对路径
@@ -16,6 +17,7 @@ module.exports = merge(common, {
         new CleanWebpackPlugin(['dist'], {
             root: path.resolve(__dirname, '../')
         }),
+        new webpack.optimize.CommonsChunkPlugin('common'),
         new UglifyjsWebpackPlugin()
     ]
 })
