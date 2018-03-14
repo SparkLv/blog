@@ -1,5 +1,7 @@
+import './index.scss';
+
 function init() {
-    console.log('hello word')
+    console.log('hello wordssss')
 }
 
 init();
