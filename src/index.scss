@@ -1,4 +1,19 @@
-.test{
+.header-box {
+    height:250px;    
+    .header-nav {
+        height:70px;
+        background-color:#000;        
+    }
+    .header-img{
+        height:180px;
+        background-color:#343434;
+    }
+}
+
+.container{
     display:flex;
-    color:red;
+    padding:20px;
+    height:1000px;
+    background-color:#568454;
+    margin:0 auto;
 }

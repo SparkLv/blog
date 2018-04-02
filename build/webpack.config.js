@@ -7,7 +7,7 @@ module.exports = {
     entry: {
         //路径为相对于根目录
         index: './src/index.js',
-        blog: './src/pages/blog.js'
+        // blog: './src/pages/blog.js'
     },
     module: {
         rules: [
@@ -17,11 +17,6 @@ module.exports = {
             }
         ]
     },
-    // optimization: {
-    //     splitChunks: {
-    //         chunks: "all", // 必须三选一： "initial" | "all"(默认就是all) | "async" 
-    //     }
-    // },
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
@@ -31,13 +26,13 @@ module.exports = {
             title: "spark's blog",
             chunks: ['index']
         }),
-        new HtmlWebpackPlugin({
-            filename: 'static/html/blog.html',
-            template: path.resolve(__dirname, "../src/pages/blog.html"),
-            inject: "body",
-            favicon: path.resolve(__dirname, "../favicon.ico"),
-            title: "spark's blog",
-            chunks: ['blog']
-        }),
+        // new HtmlWebpackPlugin({
+        //     filename: 'static/html/blog.html',
+        //     template: path.resolve(__dirname, "../src/pages/blog.html"),
+        //     inject: "body",
+        //     favicon: path.resolve(__dirname, "../favicon.ico"),
+        //     title: "spark's blog",
+        //     chunks: ['blog']
+        // }),
     ]
 }
