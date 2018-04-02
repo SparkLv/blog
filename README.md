@@ -30,7 +30,7 @@
 
 ---
 
-webpack基础部分已经配置完毕，目前分包不是很顺利，`webpack4`剔除了`CommonsChunkPlugin`，转而使用`optimization.splitChunks` 和 `optimization.runtimeChunk`，配置较多，使用后js、css失效，分包还需研究附上所用目前所用插件
+webpack基础部分已经配置完毕,使用的插件、loader等如下,由于是多页面开发模式，所以只使用sass而不用css-module
 
 1. `html-webpack-plugin`--自动生成html
 1. `webpack.HotModuleReplacementPlugin`--热模块替换
