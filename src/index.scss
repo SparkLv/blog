@@ -1,3 +1,5 @@
+$bar-padding:20px;
+
 .box{
     display: flex;
     flex-direction: column;
@@ -14,15 +16,16 @@
     }
     .container{
         display:flex;
-        width:100%;        
+        width:90%;        
         max-width:1300px;
         padding:0 10px;
-        height:1000px;
-        background-color:#fff;
-        margin:30px auto;
+        margin:0 auto;
         .content{
+            flex:3;
             .one-bar{
                 background:#fff;
+                margin-top:20px;
+                padding-bottom:10px;
                 header{
                     display:flex;
                     flex-direction: row;
@@ -44,12 +47,47 @@
                         padding-left:20px;
                     }   
                 }
+                .bar-body{
+                    width:100%;
+                    .bar-box{
+                        .img-box{
+                            max-height:300px;
+                            overflow:hidden;
+                            .bar-img{
+                                width:100%;
+                            }  
+                        }
+                        .bar-desc{
+                            word-wrap:break-word;
+                            background:#fff;
+                            padding:$bar-padding;
+                        }
+                    }
+                }
+                .bar-footer{
+                    padding-left:$bar-padding;
+                }
             }
         }
         .sidebar{
+            flex:1;
+            margin-top:20px;
+            margin-left:50px;
+            .search-box{
+                width:100%;
+                height:60px;
+                background:#fff;
+                input{
+                    width:80%;
+                    height:28px;
+                    margin-left:10%;
+                    margin-top:13px;
+                }
+            }
         }
     }
     .footer-box{
+        margin-top:20px;
         height:80px;
         background-color:#333;
     }
