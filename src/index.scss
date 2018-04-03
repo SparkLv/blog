@@ -15,16 +15,38 @@
     .container{
         display:flex;
         width:100%;        
-        max-width:1170px;
+        max-width:1300px;
         padding:0 10px;
         height:1000px;
-        background-color:#568454;
-        margin:0 auto;
+        background-color:#fff;
+        margin:30px auto;
         .content{
-            
+            .one-bar{
+                background:#fff;
+                header{
+                    display:flex;
+                    flex-direction: row;
+                    align-items: center;
+                    .bar-date{
+                        text-align: center;
+                        border-right:1px solid #ccc;
+                        flex:1;
+                        .date-day{
+                            font-size:26px;
+                            font-weight:600;
+                        }
+                        .date-month{
+                            margin-top:5px;
+                        }
+                    }
+                    .bar-title{
+                        flex:6;
+                        padding-left:20px;
+                    }   
+                }
+            }
         }
         .sidebar{
-            
         }
     }
     .footer-box{
