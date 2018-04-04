@@ -28,7 +28,30 @@ function loadingImg() {
     }
 }
 
+function rankTab() {
+    const readMost = document.getElementsByClassName('read-most')[0];
+    const newMost = document.getElementsByClassName('new-most')[0];
+    const tabs = document.getElementsByClassName('rank-tab-item');
+    tabs[0].addEventListener('click', function () {
+        if (!Com.hasClass(this.className, 'active')) {
+            this.className = Com.addClass(this.className, 'active');
+            tabs[1].className = Com.removeClass(tabs[1].className, 'active');
+            readMost.style.display = 'block';
+            newMost.style.display = 'none';
+        }
+    })
+    tabs[1].addEventListener('click', function () {
+        if (!Com.hasClass(this.className, 'active')) {
+            this.className = Com.addClass(this.className, 'active');
+            tabs[0].className = Com.removeClass(tabs[0].className, 'active');
+            readMost.style.display = 'none';
+            newMost.style.display = 'block';
+        }
+    })
+}
+
 Com.domReady(function () {
     colorTags();
     loadingImg();
+    rankTab();
 });

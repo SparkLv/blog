@@ -31,18 +31,18 @@ export default {
                     fn();
                 }
             }
-            (function () {
-                try {
-                    //DOM树未创建完之前调用doScroll会抛出错误
-                    window.document.documentElement.doScroll("left");
-                } catch (error) {
-                    //延迟再执行，arguments.callee调用自己
-                    setTimeout(argument.callee, 1);
-                    return;
-                }
-                //没有错误表示DOM树创建完毕，执行用户回调
-                init();
-            })();
+                (function () {
+                    try {
+                        //DOM树未创建完之前调用doScroll会抛出错误
+                        window.document.documentElement.doScroll("left");
+                    } catch (error) {
+                        //延迟再执行，arguments.callee调用自己
+                        setTimeout(argument.callee, 1);
+                        return;
+                    }
+                    //没有错误表示DOM树创建完毕，执行用户回调
+                    init();
+                })();
 
             //监听document的加载状态
             window.document.onreadystatechange = function () {
@@ -53,5 +53,45 @@ export default {
                 }
             }
         }
-    }
+    },
+    /**
+     * @desc 判断是否有某个class
+     * @param {String} all
+     * @param {String} item 要判断的类名
+     * @return {Boolean}
+     */
+    hasClass: function (all, item) {
+        let arr = all.split(' ');
+        if (arr.indexOf(item) === -1) {
+            return false
+        }
+        else {
+            return true
+        }
+    },
+
+    /**
+     * @desc 增加某个class
+     * @param {String} all
+     * @param {String} item 要增加的类名
+     * @return {Boolean}
+     */
+    addClass: function (all, item) {
+        return all + ' ' + item;
+    },
+
+    /**
+     * @desc 删除某个class
+     * @param {String} all
+     * @param {String} item 要删除的类名
+     * @return {Boolean}
+     */
+    removeClass: function (all, item) {
+        let arr = all.split(' ');
+        let index = arr.indexOf(item);
+        if (index !== -1) {
+            arr.splice(index, 1);
+        }
+        return arr.join(' ')
+    },
 }
