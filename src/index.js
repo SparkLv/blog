@@ -2,6 +2,7 @@ import './index.scss';
 import '../common/common.scss';
 import Com from '../common/common'
 import tagColor from '../common/tagColor'
+import barImg from '../common/barImg'
 
 function colorTags() {
     const tags = document.getElementsByClassName('tag-link');
@@ -50,8 +51,147 @@ function rankTab() {
     })
 }
 
-Com.domReady(function () {
-    colorTags();
+function createImg(start, end) {
+    const imgBoxes = document.getElementsByClassName('img-box');
+    const imgArr = Array.prototype.slice.call(imgBoxes);
+    for (let i = start; i < end; i++) {
+        let img = new Image();
+        img.src = barImg[i].url;
+        img.alt = barImg[i].alt;
+        img.className = 'bar-img';
+        imgArr[i].parentNode.parentNode.parentNode.style.display = 'block'
+        imgArr[i].appendChild(img);
+    }
     loadingImg();
+}
+
+let carouselInter;
+
+function carousel() {
+    const imgs = document.getElementsByClassName('header-img');
+    const imgsArr = Array.prototype.slice.call(imgs);
+    const imgBtn = document.getElementsByClassName('img-btn');
+    const imgBtnArr = Array.prototype.slice.call(imgBtn);
+    let index = 0;
+
+    imgBtnArr.forEach(function (item, index1) {
+        item.onclick = function () {
+            clearInterval(carouselInter);
+            index = index1;
+            imgsArr.forEach(function (item1) {
+                item1.className = Com.removeClass(item1.className, 'head-img-show');
+            });
+
+            imgBtnArr.forEach(function (item2) {
+                item2.style.background = 'transparent';
+            })
+
+            imgBtnArr[index].style.background = '#000';
+
+            imgsArr[index].className = Com.addClass(imgsArr[index].className, 'head-img-show');
+            carouselInter = setInterval(function () {
+                imgsArr.forEach(function (item) {
+                    item.className = Com.removeClass(item.className, 'head-img-show');
+                });
+                index = index < 2 ? index + 1 : 0;
+                imgsArr[index].className = Com.addClass(imgsArr[index].className, 'head-img-show');
+
+                imgBtnArr.forEach(function (item2) {
+                    item2.style.background = 'transparent';
+                })
+
+                imgBtnArr[index].style.background = '#000';
+            }, 5000);
+        }
+    })
+
+    carouselInter = setInterval(function () {
+        imgsArr.forEach(function (item) {
+            item.className = Com.removeClass(item.className, 'head-img-show');
+        });
+        index = index < 2 ? index + 1 : 0;
+        imgsArr[index].className = Com.addClass(imgsArr[index].className, 'head-img-show');
+        imgBtnArr.forEach(function (item2) {
+            item2.style.background = 'transparent';
+        })
+
+        imgBtnArr[index].style.background = '#000';
+    }, 5000);
+}
+
+function toTop() {
+    const top = document.documentElement.scrollTop;
+    const btn = document.getElementsByClassName('to-top')[0];
+    btn.style.display = top > 300 ? 'block' : 'none';
+}
+
+function runToTop() {
+    const top = document.documentElement.scrollTop;
+    const per = Math.floor(top / 20);
+    const handleCyc = setInterval(function () {
+        if (document.documentElement.scrollTop < per) {
+            document.documentElement.scrollTop = 0;
+            clearInterval(handleCyc);
+        }
+        else {
+            document.documentElement.scrollTop = document.documentElement.scrollTop - per;
+        }
+    }, 20)
+}
+
+Com.domReady(function () {
+    let imgStart = 0;
+    const loadingMore = document.getElementsByClassName('loading-more')[0];
+    const loadingMoreBtn = document.getElementsByClassName('loading-more-btn')[0];
+    const toTopBtn = document.getElementsByClassName('to-top')[0];
+    toTopBtn.onclick = runToTop;
+    colorTags();
+    createImg(imgStart, imgStart + 5);
     rankTab();
+    carousel();
+    function scroll1() {
+        if ((document.documentElement.scrollTop + document.documentElement.clientHeight) >= (document.documentElement.scrollHeight - 10)) {
+            imgStart += 5;
+            window.onscroll = null;
+            if (imgStart + 5 >= barImg.length) {
+                loadingMore.style.display = 'block';
+                setTimeout(function () {
+                    loadingMore.style.display = 'none';
+                    createImg(imgStart, barImg.length - 1);
+                }, 2000);
+            }
+            else {
+                loadingMore.style.display = 'block';
+                setTimeout(function () {
+                    loadingMore.style.display = 'none';
+                    createImg(imgStart, imgStart + 5);
+                    window.onscroll = scroll1
+                }, 2000);
+
+            }
+        }
+    }
+    window.onscroll = toTop;
+    // window.onscroll = scroll1
+    loadingMoreBtn.onclick = function () {
+        imgStart += 5;
+        if (imgStart + 5 >= barImg.length) {
+            loadingMoreBtn.style.display = 'none';
+            loadingMore.style.display = 'block';
+            setTimeout(function () {
+                loadingMore.style.display = 'none';
+                createImg(imgStart, barImg.length - 1);
+            }, 1000);
+        }
+        else {
+            loadingMoreBtn.style.display = 'none';
+            loadingMore.style.display = 'block';
+            setTimeout(function () {
+                loadingMoreBtn.style.display = 'inline-block';
+                loadingMore.style.display = 'none';
+                createImg(imgStart, imgStart + 5);
+            }, 1000);
+
+        }
+    }
 });
