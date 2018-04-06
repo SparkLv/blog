@@ -1,13 +1,90 @@
 $bar-padding:20px;
 
+@keyframes widthToFull{
+    from{
+        width:1%;
+    }
+    to{
+        width:100%;
+    }
+}
+
 .box{
     display: flex;
     flex-direction: column;
     .header-box {
         height:240px;    
-        .header-nav {
+        .header-head {
+            display:flex;
+            align-items:center;
+            justify-content: space-between;
+            padding: 0 20px;
             height:80px;
-            background-color:#000;        
+            background-color:#000;
+            .head-logo{
+                color:#fff;
+            }
+            .head-nav{
+                position: relative;                
+                &>ul{
+                    display:flex;
+                    .head-nav-item{
+                        padding:15px 20px;
+                        color:#aaa;
+                        // &::before{
+                        //     content: '';
+                        //     display:block;
+                        //     width:100%;
+                        //     height:3px;
+                        //     background: skyblue;
+                        //     opacity:0;
+                        //     margin-bottom: 10px;
+                        // }
+                        &:hover{
+                            cursor: pointer;                            
+                            color:#fff;
+                            background:#353535;                            
+                            .nav-list{
+                                display:block;
+                            }
+                        }
+                        // &:hover::before{
+                        //     opacity:1;
+                        //     transition:all 1s linear; 
+                        // }
+                        .nav-list{
+                            display:none;
+                            padding-top:10px;
+                            background:#353535;
+                            color:#fff;
+                            position: absolute;
+                            width:100%;
+                            left:0;
+                            top:46px;
+                            z-index:2;
+                            &::before{
+                                content: '';
+                                display:block;
+                                position: absolute;
+                                top:2px;
+                                left:0;
+                                height:2px;
+                                background: skyblue;
+                                animation:widthToFull 2s;
+                                animation-fill-mode: forwards;
+                            }
+                            .nav-list-item{
+                                float: left;
+                                padding:10px;
+                                &:hover{
+                                    cursor: pointer;
+                                    background: #666666;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
         .header-img-box{
             position: relative;
@@ -43,7 +120,7 @@ $bar-padding:20px;
                 top:50%;
                 transform: translateY(-50%);
                 right:20px;
-                background:#FFE4E1;
+                background:rgba(222,222,222,0.3);
                 padding:0 5px 5px;
                 li:nth-child(1){
                     background:#000;
