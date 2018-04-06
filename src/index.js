@@ -72,14 +72,16 @@ function carousel() {
     const imgsArr = Array.prototype.slice.call(imgs);
     const imgBtn = document.getElementsByClassName('img-btn');
     const imgBtnArr = Array.prototype.slice.call(imgBtn);
+    const imgTitle = document.getElementsByClassName('img-title');
     let index = 0;
 
     imgBtnArr.forEach(function (item, index1) {
         item.onclick = function () {
             clearInterval(carouselInter);
             index = index1;
-            imgsArr.forEach(function (item1) {
+            imgsArr.forEach(function (item1, index2) {
                 item1.className = Com.removeClass(item1.className, 'head-img-show');
+                imgTitle[index2].style.display = 'none';
             });
 
             imgBtnArr.forEach(function (item2) {
@@ -89,12 +91,15 @@ function carousel() {
             imgBtnArr[index].style.background = '#000';
 
             imgsArr[index].className = Com.addClass(imgsArr[index].className, 'head-img-show');
+            imgTitle[index].style.display = 'block';
             carouselInter = setInterval(function () {
-                imgsArr.forEach(function (item) {
+                imgsArr.forEach(function (item, index3) {
                     item.className = Com.removeClass(item.className, 'head-img-show');
+                    imgTitle[index3].style.display = 'none';
                 });
                 index = index < 2 ? index + 1 : 0;
                 imgsArr[index].className = Com.addClass(imgsArr[index].className, 'head-img-show');
+                imgTitle[index].style.display = 'block';
 
                 imgBtnArr.forEach(function (item2) {
                     item2.style.background = 'transparent';
@@ -106,11 +111,13 @@ function carousel() {
     })
 
     carouselInter = setInterval(function () {
-        imgsArr.forEach(function (item) {
+        imgsArr.forEach(function (item,index4) {
             item.className = Com.removeClass(item.className, 'head-img-show');
+            imgTitle[index4].style.display = 'none';            
         });
         index = index < 2 ? index + 1 : 0;
         imgsArr[index].className = Com.addClass(imgsArr[index].className, 'head-img-show');
+        imgTitle[index].style.display = 'block'; 
         imgBtnArr.forEach(function (item2) {
             item2.style.background = 'transparent';
         })

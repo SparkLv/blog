@@ -13,6 +13,23 @@ $bar-padding:20px;
             position: relative;
             max-height:160px;
             overflow: hidden;
+            .img-title{
+                display:none;
+                position: absolute;
+                top:30px;
+                left:50px;
+                color:#fff;
+                .first-line{
+                    font-size:20px;
+                    font-weight:600;
+                }
+                .second-line{
+                    
+                }
+            }
+            .img-title:nth-child(1){
+                display:block;
+            }
             .header-img{
                 display:none;
                 width:100%;
