@@ -31,15 +31,6 @@ $bar-padding:20px;
                     .head-nav-item{
                         padding:15px 20px;
                         color:#aaa;
-                        // &::before{
-                        //     content: '';
-                        //     display:block;
-                        //     width:100%;
-                        //     height:3px;
-                        //     background: skyblue;
-                        //     opacity:0;
-                        //     margin-bottom: 10px;
-                        // }
                         &:hover{
                             cursor: pointer;                            
                             color:#fff;
@@ -48,10 +39,6 @@ $bar-padding:20px;
                                 display:block;
                             }
                         }
-                        // &:hover::before{
-                        //     opacity:1;
-                        //     transition:all 1s linear; 
-                        // }
                         .nav-list{
                             display:none;
                             padding-top:10px;
@@ -345,4 +332,7 @@ $bar-padding:20px;
         border-bottom:2px solid #000;
         transform:rotate(135deg);
     }
+}
+.calender-box{
+    // width:100%;
 }

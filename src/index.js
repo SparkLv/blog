@@ -3,6 +3,7 @@ import '../common/common.scss';
 import Com from '../common/common'
 import tagColor from '../common/tagColor'
 import barImg from '../common/barImg'
+import calender from '../components/calender'
 
 function colorTags() {
     const tags = document.getElementsByClassName('tag-link');
@@ -111,13 +112,13 @@ function carousel() {
     })
 
     carouselInter = setInterval(function () {
-        imgsArr.forEach(function (item,index4) {
+        imgsArr.forEach(function (item, index4) {
             item.className = Com.removeClass(item.className, 'head-img-show');
-            imgTitle[index4].style.display = 'none';            
+            imgTitle[index4].style.display = 'none';
         });
         index = index < 2 ? index + 1 : 0;
         imgsArr[index].className = Com.addClass(imgsArr[index].className, 'head-img-show');
-        imgTitle[index].style.display = 'block'; 
+        imgTitle[index].style.display = 'block';
         imgBtnArr.forEach(function (item2) {
             item2.style.background = 'transparent';
         })
@@ -202,3 +203,9 @@ Com.domReady(function () {
         }
     }
 });
+
+window.onload = function () {
+    const ele = document.getElementsByClassName('calender-box')[0];
+    let cal = new calender(ele);
+    cal.make();
+}
