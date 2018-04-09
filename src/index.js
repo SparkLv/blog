@@ -3,15 +3,7 @@ import '../common/common.scss';
 import Com from '../common/common'
 import tagColor from '../common/tagColor'
 import barImg from '../common/barImg'
-<<<<<<< HEAD
-import Canlender from '../components/canlender'
-
-let cal = document.getElementsByClassName('calender')[0];
-let bin = new Canlender(cal);
-bin.make();
-=======
 import calender from '../components/calender'
->>>>>>> de37393f9c6253dac66dd9d9f580eca26639504f
 
 function colorTags() {
     const tags = document.getElementsByClassName('tag-link');
