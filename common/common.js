@@ -94,4 +94,9 @@ export default {
         }
         return arr.join(' ')
     },
+    addStyle: function (ele, style) {
+        for (let key in style) {
+            ele.style[key] = style[key];
+        }
+    }
 }
