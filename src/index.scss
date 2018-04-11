@@ -138,24 +138,16 @@ $bar-padding:20px;
                 display:none;
                 background:#fff;
                 margin-top:20px;
+                margin-left:20px;
                 padding-bottom:10px;
-                width:100%;
+                width:30%;
+                min-width:250px;
                 header{
                     display:flex;
                     flex-direction: row;
                     align-items: center;
-                    .bar-date{
-                        text-align: center;
-                        border-right:1px solid #ccc;
-                        padding:5px 0;
-                        flex:1;
-                        .date-day{
-                            font-size:36px;
-                            font-weight:600;
-                        }
-                    }
                     .bar-title{
-                        flex:6;
+                        flex:2;
                         padding-left:20px;
                         text-overflow: ellipsis;
                         overflow: hidden;
@@ -168,12 +160,12 @@ $bar-padding:20px;
                         .loading-img-box{
                             display:block;                            
                             width:100%;
-                            height:200px;
+                            height:150px;
                             background:#212c25 url(http://sparklv.cn/img/icon/img-loading.svg) no-repeat center center;                            
                         }
                         .img-box{
                             display:none;
-                            max-height:300px;
+                            height:150px;
                             overflow:hidden;
                             position: relative;
                             .bar-img{
@@ -183,7 +175,7 @@ $bar-padding:20px;
                                 content:'';
                                 cursor: pointer;
                                 width:100%;
-                                height:100%;                             
+                                height:150px;                    
                                 opacity:0;
                                 top:0;
                                 left:0;

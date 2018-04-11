@@ -154,14 +154,14 @@ Com.domReady(function () {
     const toTopBtn = document.getElementsByClassName('to-top')[0];
     toTopBtn.onclick = runToTop;
     colorTags();
-    createImg(imgStart, imgStart + 5);
+    createImg(imgStart, imgStart + 6);
     rankTab();
     carousel();
     function scroll1() {
         if ((document.documentElement.scrollTop + document.documentElement.clientHeight) >= (document.documentElement.scrollHeight - 10)) {
-            imgStart += 5;
+            imgStart += 6;
             window.onscroll = null;
-            if (imgStart + 5 >= barImg.length) {
+            if (imgStart + 6 >= barImg.length) {
                 loadingMore.style.display = 'block';
                 setTimeout(function () {
                     loadingMore.style.display = 'none';
@@ -172,7 +172,7 @@ Com.domReady(function () {
                 loadingMore.style.display = 'block';
                 setTimeout(function () {
                     loadingMore.style.display = 'none';
-                    createImg(imgStart, imgStart + 5);
+                    createImg(imgStart, imgStart + 6);
                     window.onscroll = scroll1
                 }, 2000);
 
@@ -182,8 +182,8 @@ Com.domReady(function () {
     window.onscroll = toTop;
     // window.onscroll = scroll1
     loadingMoreBtn.onclick = function () {
-        imgStart += 5;
-        if (imgStart + 5 >= barImg.length) {
+        imgStart += 6;
+        if (imgStart + 6 >= barImg.length) {
             loadingMoreBtn.style.display = 'none';
             loadingMore.style.display = 'block';
             setTimeout(function () {
@@ -197,7 +197,7 @@ Com.domReady(function () {
             setTimeout(function () {
                 loadingMoreBtn.style.display = 'inline-block';
                 loadingMore.style.display = 'none';
-                createImg(imgStart, imgStart + 5);
+                createImg(imgStart, imgStart + 6);
             }, 1000);
 
         }
