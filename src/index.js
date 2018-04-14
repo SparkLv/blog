@@ -68,7 +68,7 @@ function createImg(start, end) {
     img.src = barImg[i].url;
     img.alt = barImg[i].alt;
     img.className = "bar-img";
-    imgArr[i].parentNode.parentNode.parentNode.style.display = "block";
+    imgArr[i].parentNode.parentNode.parentNode.style.display = "inline-block";
     imgArr[i].appendChild(img);
   }
   loadingImg();
@@ -164,29 +164,6 @@ function runToTop() {
   }, 20);
 }
 
-function setPos() {
-  let posObj = { width: 0, height: [0, 0, 0] };
-  const content = document.getElementsByClassName("content")[0];
-  const bar = document.getElementsByClassName("one-bar");
-  const barArr = Array.prototype.slice.call(bar);
-  let lastHeight = [0, 0, 0];
-  barArr.forEach((item, index) => {
-    let pos = (index + 1) % 3 - 1;
-    if (pos === -1) {
-      pos = 2;
-    }
-    item.style.left = posObj.width + 10 + "px";
-    if (pos === 2) {
-      posObj.width = 0;
-    } else {
-      posObj.width += item.scrollWidth + 10;
-    }
-    item.style.top = posObj.height[pos] + 10 + "px";
-    posObj.height[pos] += item.scrollHeight + 10;
-  });
-  content.style.height = posObj.height[0] + 100 + "px";
-}
-
 Com.domReady(function() {
   let imgStart = 0;
   const loadingMore = document.getElementsByClassName("loading-more")[0];
@@ -197,7 +174,7 @@ Com.domReady(function() {
   createImg(imgStart, imgStart + 6);
   rankTab();
   carousel();
-  setPos();
+  // setPos();
   function scroll1() {
     if (
       document.documentElement.scrollTop +
@@ -232,7 +209,6 @@ Com.domReady(function() {
       setTimeout(function() {
         loadingMore.style.display = "none";
         createImg(imgStart, barImg.length - 1);
-        setPos();        
       }, 1000);
     } else {
       loadingMoreBtn.style.display = "none";
@@ -241,7 +217,6 @@ Com.domReady(function() {
         loadingMoreBtn.style.display = "inline-block";
         loadingMore.style.display = "none";
         createImg(imgStart, imgStart + 6);
-        setPos();
       }, 1000);
     }
   };
