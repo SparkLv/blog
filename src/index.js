@@ -184,13 +184,13 @@ Com.domReady(function() {
       imgStart += 6;
       window.onscroll = null;
       if (imgStart + 6 >= barImg.length) {
-        loadingMore.style.display = "block";
+        loadingMore.style.display = "inline-block";
         setTimeout(function() {
           loadingMore.style.display = "none";
           createImg(imgStart, barImg.length - 1);
         }, 2000);
       } else {
-        loadingMore.style.display = "block";
+        loadingMore.style.display = "inline-block";
         setTimeout(function() {
           loadingMore.style.display = "none";
           createImg(imgStart, imgStart + 6);
@@ -205,14 +205,14 @@ Com.domReady(function() {
     imgStart += 6;
     if (imgStart + 6 >= barImg.length) {
       loadingMoreBtn.style.display = "none";
-      loadingMore.style.display = "block";
+      loadingMore.style.display = "inline-block";
       setTimeout(function() {
         loadingMore.style.display = "none";
         createImg(imgStart, barImg.length - 1);
       }, 1000);
     } else {
       loadingMoreBtn.style.display = "none";
-      loadingMore.style.display = "block";
+      loadingMore.style.display = "inline-block";
       setTimeout(function() {
         loadingMoreBtn.style.display = "inline-block";
         loadingMore.style.display = "none";

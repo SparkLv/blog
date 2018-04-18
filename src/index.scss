@@ -10,6 +10,7 @@ $bar-padding: 20px;
 }
 
 .box {
+  text-align: center;
   .header-box {
     height: 240px;
     .header-head {
@@ -135,20 +136,21 @@ $bar-padding: 20px;
       .one-bar {
         display: none;
         background: #fff;
-        width: 25%;
+        width: 370px;
         height: 400px;
+        margin: 15px;
         .bar-body {
           width: 100%;
           .loading-img-box {
             display: block;
             width: 100%;
-            height: 150px;
+            height: 200px;
             background: #212c25 url(http://sparklv.cn/img/icon/img-loading.svg)
               no-repeat center center;
           }
           .img-box {
             display: none;
-            height: 150px;
+            height: 200px;
             overflow: hidden;
             position: relative;
             .bar-img {
@@ -158,7 +160,7 @@ $bar-padding: 20px;
               content: "";
               cursor: pointer;
               width: 100%;
-              height: 150px;
+              height: 200px;
               opacity: 0;
               top: 0;
               left: 0;
@@ -180,25 +182,32 @@ $bar-padding: 20px;
           }
         }
         .bar-head {
-          padding-left: 10px;
-          height: 175px;
-          overflow: auto;
+          padding: 20px;
+          height: 100px;
+          overflow: hidden;
           .bar-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin: 15px 0 10px;
+            color: #303030;
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
             border-bottom: 1px solid #eee;
           }
           .bar-desc {
+            text-align: left;
+            font-size: 12px;
             word-wrap: break-word;
+            color: #303031;
             background: #fff;
           }
         }
         .bar-footer {
-          height: 75px;
+          height: 40px;
+          padding: 10px 20px;
+          text-align: left;
           .bar-date {
-            margin: 15px 0 10px;
-            color: #666;
+            font-size: 12px;
+            color: #989ea0;
+            font-weight: 600;
           }
         }
       }
