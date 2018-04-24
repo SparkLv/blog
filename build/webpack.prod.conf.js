@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const merge = require('webpack-merge');
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
+// const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = merge(common, {
     devtool: 'source-map',    
@@ -18,6 +18,6 @@ module.exports = merge(common, {
             root: path.resolve(__dirname, '../')
         }),
         new webpack.optimize.CommonsChunkPlugin('common'),
-        new UglifyjsWebpackPlugin()
+        // new UglifyjsWebpackPlugin()
     ]
 })

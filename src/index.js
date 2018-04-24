@@ -187,9 +187,12 @@ Com.domReady(function() {
   moreMenuBtn.onclick = moreMenu;
   sideHeadClose.onclick = moreMenu;
   colorTags();
-  createImg(imgStart, imgStart + 6);
+  createImg(imgStart, imgStart + 12);
   rankTab();
   carousel();
+  const ele = document.getElementsByClassName("calender-box")[0];
+  let cal = new calender(ele);
+  cal.make();
 
   // setPos();
   function scroll1() {
@@ -198,9 +201,9 @@ Com.domReady(function() {
         document.documentElement.clientHeight >=
       document.documentElement.scrollHeight - 10
     ) {
-      imgStart += 6;
+      imgStart += 12;
       window.onscroll = null;
-      if (imgStart + 6 >= barImg.length) {
+      if (imgStart + 12 >= barImg.length) {
         loadingMore.style.display = "inline-block";
         setTimeout(function() {
           loadingMore.style.display = "none";
@@ -210,7 +213,7 @@ Com.domReady(function() {
         loadingMore.style.display = "inline-block";
         setTimeout(function() {
           loadingMore.style.display = "none";
-          createImg(imgStart, imgStart + 6);
+          createImg(imgStart, imgStart + 12);
           window.onscroll = scroll1;
         }, 2000);
       }
@@ -219,8 +222,8 @@ Com.domReady(function() {
   window.onscroll = toTop;
   // window.onscroll = scroll1
   loadingMoreBtn.onclick = function() {
-    imgStart += 6;
-    if (imgStart + 6 >= barImg.length) {
+    imgStart += 12;
+    if (imgStart + 12 >= barImg.length) {
       loadingMoreBtn.style.display = "none";
       loadingMore.style.display = "inline-block";
       setTimeout(function() {
@@ -233,14 +236,8 @@ Com.domReady(function() {
       setTimeout(function() {
         loadingMoreBtn.style.display = "inline-block";
         loadingMore.style.display = "none";
-        createImg(imgStart, imgStart + 6);
+        createImg(imgStart, imgStart + 12);
       }, 1000);
     }
   };
 });
-
-window.onload = function() {
-  const ele = document.getElementsByClassName("calender-box")[0];
-  let cal = new calender(ele);
-  cal.make();
-};
