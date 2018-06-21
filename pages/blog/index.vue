@@ -1,32 +1,38 @@
 <template>
-    <div>
-        <span>{{text}}</span>
-        <button @click="changeText">切换</button>
-    </div>
+    <article>
+        <Head :type="type" />
+        <section class="content">
+
+        </section>
+    </article>
 </template>
 <script>
+import Head from "./components/head";
 export default {
   asyncData({ query }) {
-    return { x: query };
+    return { type: query.type || "" };
   },
   data() {
     return {
-      text: "aaaaa"
+      type: ""
     };
   },
-  mounted() {
-    console.log(this.x);
+  components: {
+    Head
   },
-  methods: {
-    changeText() {
-      if (this.text === "aaaaa") {
-        this.text = "bbbb";
-      } else {
-        this.text = "aaaaa";
-      }
-    }
+  beforeRouteUpdate(to, from, next) {
+    this.type = to.query.type;
+    next();
+  },
+  mounted() {
+    console.log(this.type);
   }
 };
 </script>
 <style lang="scss" scoped>
+.content {
+  width: 100%;
+  height: 2000px;
+  background: #fff;
+}
 </style>
