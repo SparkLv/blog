@@ -1,0 +1,11 @@
+{
+  "name": "blog",
+  "scripts": {
+    "dev": "nuxt"
+  },
+  "dependencies": {
+    "node-sass": "^4.9.0",
+    "nuxt": "^1.4.1",
+    "sass-loader": "^7.0.3"
+  }
+}
