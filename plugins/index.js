@@ -10,5 +10,7 @@ Vue.component("Logo", Logo);
     const fontSize = (16 * width) / 1400;
     document.body.style.fontSize = fontSize + "px";
   }
-  window.addEventListener("resize", setHTMLFontSize, false);
+  if (!process.server) {
+    window.addEventListener("resize", setHTMLFontSize, false);
+  }
 })();

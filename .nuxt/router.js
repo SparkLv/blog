@@ -4,7 +4,12 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 const _7ca32c16 = () => import('..\\pages\\blog\\index.vue' /* webpackChunkName: "pages_blog_index" */).then(m => m.default || m)
+const _804175b2 = () => import('..\\pages\\blog\\components\\tag.vue' /* webpackChunkName: "pages_blog_components_tag" */).then(m => m.default || m)
+const _1bb80cd1 = () => import('..\\pages\\blog\\components\\essayBox.vue' /* webpackChunkName: "pages_blog_components_essayBox" */).then(m => m.default || m)
+const _02a3e1a4 = () => import('..\\pages\\blog\\components\\bottom.vue' /* webpackChunkName: "pages_blog_components_bottom" */).then(m => m.default || m)
+const _965d096c = () => import('..\\pages\\blog\\components\\essay.vue' /* webpackChunkName: "pages_blog_components_essay" */).then(m => m.default || m)
 const _29af5f23 = () => import('..\\pages\\blog\\components\\head.vue' /* webpackChunkName: "pages_blog_components_head" */).then(m => m.default || m)
+const _ca7d01de = () => import('..\\pages\\blog\\components\\topNav.vue' /* webpackChunkName: "pages_blog_components_topNav" */).then(m => m.default || m)
 const _5d1aec8c = () => import('..\\pages\\blog\\pages\\page\\index.vue' /* webpackChunkName: "pages_blog_pages_page_index" */).then(m => m.default || m)
 const _3def2417 = () => import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */).then(m => m.default || m)
 
@@ -72,9 +77,34 @@ export function createRouter () {
 			name: "blog"
 		},
 		{
+			path: "/blog/components/tag",
+			component: _804175b2,
+			name: "blog-components-tag"
+		},
+		{
+			path: "/blog/components/essayBox",
+			component: _1bb80cd1,
+			name: "blog-components-essayBox"
+		},
+		{
+			path: "/blog/components/bottom",
+			component: _02a3e1a4,
+			name: "blog-components-bottom"
+		},
+		{
+			path: "/blog/components/essay",
+			component: _965d096c,
+			name: "blog-components-essay"
+		},
+		{
 			path: "/blog/components/head",
 			component: _29af5f23,
 			name: "blog-components-head"
+		},
+		{
+			path: "/blog/components/topNav",
+			component: _ca7d01de,
+			name: "blog-components-topNav"
 		},
 		{
 			path: "/blog/pages/page",

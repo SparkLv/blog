@@ -1,19 +1,7 @@
 <template>
     <header class="header">
         <Logo @click="goHome" class="logo"></Logo>
-        <nav class="top-nav">
-            <ul>
-                <li :class="type==='tech'?'active':''">
-                    <nuxt-link to="/blog?type=tech">Technoledge</nuxt-link>
-                </li>
-                <li :class="type==='finance'?'active':''">
-                    <nuxt-link to="/blog?type=finance">Finance</nuxt-link>
-                </li>
-                <li :class="type==='literature'?'active':''">
-                    <nuxt-link to="/blog?type=literature">Literature</nuxt-link>
-                </li>
-            </ul>
-        </nav>
+        <TopNav :type="type"></TopNav>
         <span class="title">{{getBgText}}</span>
         <div :style="{transform:`translateY(${headMove})`}" class="bg-image-box">
             <img class="bg-image" :src="`${getBgImg}.jpg`" alt="bg-image" />
@@ -21,6 +9,7 @@
     </header>
 </template>
 <script>
+import TopNav from "./topNav";
 export default {
   data() {
     return {
@@ -30,11 +19,14 @@ export default {
   props: {
     type: { type: String, default: "" }
   },
+  components: {
+    TopNav
+  },
   computed: {
     getBgText() {
       switch (this.type) {
         case "tech":
-          return "TECHNOLEDGE";
+          return "TECHNOLOGY";
           break;
         case "finance":
           return "FINANCE";
@@ -43,7 +35,7 @@ export default {
           return "LITERATURE";
           break;
         default:
-          return "BlOG";
+          return "BLOG";
       }
     },
     getBgImg() {
@@ -87,23 +79,6 @@ export default {
     left: 20px;
     z-index: 1;
     cursor: pointer;
-  }
-  .top-nav {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    li {
-      float: left;
-      margin: 0 10px;
-      padding-bottom: 8px;
-      a {
-        color: #eee;
-        font-size: 18px;
-      }
-    }
-    .active {
-      border-bottom: 1px solid #fff;
-    }
   }
   .title {
     position: absolute;
