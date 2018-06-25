@@ -3,10 +3,10 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const _7ca32c16 = () => import('..\\pages\\blog\\index.vue' /* webpackChunkName: "pages_blog_index" */).then(m => m.default || m)
-const _29af5f23 = () => import('..\\pages\\blog\\components\\head.vue' /* webpackChunkName: "pages_blog_components_head" */).then(m => m.default || m)
-const _5d1aec8c = () => import('..\\pages\\blog\\pages\\page\\index.vue' /* webpackChunkName: "pages_blog_pages_page_index" */).then(m => m.default || m)
-const _3def2417 = () => import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */).then(m => m.default || m)
+const _0abaed08 = () => import('../pages/blog/index.vue' /* webpackChunkName: "pages/blog/index" */).then(m => m.default || m)
+const _1987b722 = () => import('../pages/blog/components/head.vue' /* webpackChunkName: "pages/blog/components/head" */).then(m => m.default || m)
+const _3da13b37 = () => import('../pages/blog/pages/page/index.vue' /* webpackChunkName: "pages/blog/pages/page/index" */).then(m => m.default || m)
+const _785816bf = () => import('../pages/index.vue' /* webpackChunkName: "pages/index" */).then(m => m.default || m)
 
 
 
@@ -68,22 +68,22 @@ export function createRouter () {
     routes: [
 		{
 			path: "/blog",
-			component: _7ca32c16,
+			component: _0abaed08,
 			name: "blog"
 		},
 		{
 			path: "/blog/components/head",
-			component: _29af5f23,
+			component: _1987b722,
 			name: "blog-components-head"
 		},
 		{
 			path: "/blog/pages/page",
-			component: _5d1aec8c,
+			component: _3da13b37,
 			name: "blog-pages-page"
 		},
 		{
 			path: "/",
-			component: _3def2417,
+			component: _785816bf,
 			name: "index"
 		}
     ],
