@@ -4,8 +4,20 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 const _0abaed08 = () => import('../pages/blog/index.vue' /* webpackChunkName: "pages/blog/index" */).then(m => m.default || m)
-const _1987b722 = () => import('../pages/blog/components/head.vue' /* webpackChunkName: "pages/blog/components/head" */).then(m => m.default || m)
 const _3da13b37 = () => import('../pages/blog/pages/page/index.vue' /* webpackChunkName: "pages/blog/pages/page/index" */).then(m => m.default || m)
+const _1b894c1d = () => import('../pages/blog/components/essayBox.vue' /* webpackChunkName: "pages/blog/components/essayBox" */).then(m => m.default || m)
+const _3432215d = () => import('../pages/blog/components/topNav.vue' /* webpackChunkName: "pages/blog/components/topNav" */).then(m => m.default || m)
+const _1987b722 = () => import('../pages/blog/components/head.vue' /* webpackChunkName: "pages/blog/components/head" */).then(m => m.default || m)
+const _1cdd5f7e = () => import('../pages/blog/components/essay.vue' /* webpackChunkName: "pages/blog/components/essay" */).then(m => m.default || m)
+const _423ea65b = () => import('../pages/blog/components/tag.vue' /* webpackChunkName: "pages/blog/components/tag" */).then(m => m.default || m)
+const _cfc29d0c = () => import('../pages/blog/components/bottom.vue' /* webpackChunkName: "pages/blog/components/bottom" */).then(m => m.default || m)
+const _bfd02966 = () => import('../pages/blog/pages/page/components/toolBar.vue' /* webpackChunkName: "pages/blog/pages/page/components/toolBar" */).then(m => m.default || m)
+const _6f90a422 = () => import('../pages/blog/pages/page/components/essay.vue' /* webpackChunkName: "pages/blog/pages/page/components/essay" */).then(m => m.default || m)
+const _1419b36e = () => import('../pages/blog/pages/page/components/asideNav.vue' /* webpackChunkName: "pages/blog/pages/page/components/asideNav" */).then(m => m.default || m)
+const _5d17173a = () => import('../pages/blog/pages/page/components/commentPanel.vue' /* webpackChunkName: "pages/blog/pages/page/components/commentPanel" */).then(m => m.default || m)
+const _42bb9386 = () => import('../pages/blog/pages/page/components/imgBox.vue' /* webpackChunkName: "pages/blog/pages/page/components/imgBox" */).then(m => m.default || m)
+const _34a46843 = () => import('../pages/blog/pages/page/components/readMoreBtn.vue' /* webpackChunkName: "pages/blog/pages/page/components/readMoreBtn" */).then(m => m.default || m)
+const _1b7b451a = () => import('../pages/blog/pages/page/components/moreEssay.vue' /* webpackChunkName: "pages/blog/pages/page/components/moreEssay" */).then(m => m.default || m)
 const _785816bf = () => import('../pages/index.vue' /* webpackChunkName: "pages/index" */).then(m => m.default || m)
 
 
@@ -72,14 +84,74 @@ export function createRouter () {
 			name: "blog"
 		},
 		{
+			path: "/blog/pages/page",
+			component: _3da13b37,
+			name: "blog-pages-page"
+		},
+		{
+			path: "/blog/components/essayBox",
+			component: _1b894c1d,
+			name: "blog-components-essayBox"
+		},
+		{
+			path: "/blog/components/topNav",
+			component: _3432215d,
+			name: "blog-components-topNav"
+		},
+		{
 			path: "/blog/components/head",
 			component: _1987b722,
 			name: "blog-components-head"
 		},
 		{
-			path: "/blog/pages/page",
-			component: _3da13b37,
-			name: "blog-pages-page"
+			path: "/blog/components/essay",
+			component: _1cdd5f7e,
+			name: "blog-components-essay"
+		},
+		{
+			path: "/blog/components/tag",
+			component: _423ea65b,
+			name: "blog-components-tag"
+		},
+		{
+			path: "/blog/components/bottom",
+			component: _cfc29d0c,
+			name: "blog-components-bottom"
+		},
+		{
+			path: "/blog/pages/page/components/toolBar",
+			component: _bfd02966,
+			name: "blog-pages-page-components-toolBar"
+		},
+		{
+			path: "/blog/pages/page/components/essay",
+			component: _6f90a422,
+			name: "blog-pages-page-components-essay"
+		},
+		{
+			path: "/blog/pages/page/components/asideNav",
+			component: _1419b36e,
+			name: "blog-pages-page-components-asideNav"
+		},
+		{
+			path: "/blog/pages/page/components/commentPanel",
+			component: _5d17173a,
+			name: "blog-pages-page-components-commentPanel"
+		},
+		{
+			path: "/blog/pages/page/components/imgBox",
+			component: _42bb9386,
+			name: "blog-pages-page-components-imgBox"
+		},
+		{
+			path: "/blog/pages/page/components/readMoreBtn",
+			component: _34a46843,
+			name: "blog-pages-page-components-readMoreBtn"
+		},
+		{
+			path: "/blog/pages/page/components/moreEssay",
+			component: _1b7b451a,
+			name: "blog-pages-page-components-moreEssay"
 		},
 		{
 			path: "/",

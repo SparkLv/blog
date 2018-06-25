@@ -4,11 +4,11 @@
             <li :class="type==='tech'?'active':''">
                 <nuxt-link to="/blog?type=tech">Technology</nuxt-link>
             </li>
-            <li :class="type==='finance'?'active':''">
+             <li :class="type==='finance'?'active':''">
                 <nuxt-link to="/blog?type=finance">Finance</nuxt-link>
             </li>
             <li :class="type==='literature'?'active':''">
-                <nuxt-link to="/blog?type=literature">Literature</nuxt-link>
+                <nuxt-link to="/blog?type=thinking">Thinking</nuxt-link>
             </li>
         </ul>
         <div v-else @click="showList=!showList" class="collapse-btn">
@@ -23,7 +23,7 @@
                     <nuxt-link to="/blog?type=finance">Finance</nuxt-link>
                 </li>
                 <li :class="type==='literature'?'activeLi':''">
-                    <nuxt-link to="/blog?type=literature">Literature</nuxt-link>
+                    <nuxt-link to="/blog?type=thinking">Thinking</nuxt-link>
                 </li>
             </ul>
         </div>
@@ -91,7 +91,7 @@ export default {
       width: 120px;
       text-align: right;
       border-bottom: 1px solid #aaa;
-      margin:0;
+      margin: 0;
       a {
         color: #fff;
         font-size: 16px;

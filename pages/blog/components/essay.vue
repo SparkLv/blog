@@ -96,14 +96,7 @@ $essay-box-width: 370px !default;
 
 @media screen and (max-width: 1000px) {
   .box {
-    height: 250px;
     width: 80%;
-    .img {
-      display: none;
-    }
-    .content {
-      border-top: 1px solid #f4f4f4;
-    }
   }
 }
 </style>

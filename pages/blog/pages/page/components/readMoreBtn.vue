@@ -20,7 +20,7 @@ export default {};
   .read-more-btn {
     width: 220px;
     height: 50px;
-    background: #c32f30;
+    background: #204769;
     color: #fff;
     font-weight: bold;
     border-radius: 5px;
@@ -39,7 +39,7 @@ export default {};
       display: inline-block;
       width: 38px;
       font-size: 24px;
-      background: #b52b2c;
+      background: #19375b;
       cursor: pointer;
       border-left: 2px solid #eee;
       color: #fff;
