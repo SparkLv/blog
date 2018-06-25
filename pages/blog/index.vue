@@ -1,13 +1,12 @@
 <template>
     <article>
         <Head :type="type" />
-        <section class="content">
-
-        </section>
+        <EssayBox></EssayBox>
     </article>
 </template>
 <script>
 import Head from "./components/head";
+import EssayBox from "./components/essayBox";
 export default {
   asyncData({ query }) {
     return { type: query.type || "" };
@@ -18,21 +17,14 @@ export default {
     };
   },
   components: {
-    Head
+    Head,
+    EssayBox
   },
   beforeRouteUpdate(to, from, next) {
     this.type = to.query.type;
     next();
-  },
-  mounted() {
-    console.log(this.type);
   }
 };
 </script>
 <style lang="scss" scoped>
-.content {
-  width: 100%;
-  height: 2000px;
-  background: #fff;
-}
 </style>
