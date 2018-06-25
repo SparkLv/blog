@@ -1,6 +1,6 @@
 <template>
     <header class="header">
-        <Logo @click="goHome" class="logo"></Logo>
+        <Logo class="logo"></Logo>
         <TopNav :type="type"></TopNav>
         <span class="title">{{getBgText}}</span>
         <div :style="{transform:`translateY(${headMove})`}" class="bg-image-box">
@@ -63,9 +63,6 @@ export default {
   methods: {
     bgImgScroll() {
       this.headMove = document.documentElement.scrollTop + "px";
-    },
-    goHome() {
-      document.location.href = "/blog";
     }
   }
 };
@@ -78,7 +75,6 @@ export default {
     top: 20px;
     left: 20px;
     z-index: 1;
-    cursor: pointer;
   }
   .title {
     position: absolute;

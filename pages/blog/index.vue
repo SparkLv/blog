@@ -2,13 +2,11 @@
     <article>
         <Head :type="type" />
         <EssayBox></EssayBox>
-        <Bottom></Bottom>
     </article>
 </template>
 <script>
 import Head from "./components/head";
 import EssayBox from "./components/essayBox";
-import Bottom from "./components/bottom";
 export default {
   asyncData({ query }) {
     return { type: query.type || "" };
@@ -20,8 +18,7 @@ export default {
   },
   components: {
     Head,
-    EssayBox,
-    Bottom
+    EssayBox
   },
   beforeRouteUpdate(to, from, next) {
     this.type = to.query.type;

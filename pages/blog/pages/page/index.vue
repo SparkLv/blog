@@ -1,24 +1,52 @@
 <template>
-    <div v-html="text">
-        <!-- {{text}}` -->
+  <article class="essay-page">
+    <ImgBox></ImgBox>
+    <ToolBar></ToolBar>
+    <div class="container">
+      <Essay :text="text"></Essay>
+      <AsideNav></AsideNav>
     </div>
+    <ReadMoreBtn></ReadMoreBtn>
+  </article>
 </template>
 <script>
-import marked from "marked";
+import Essay from "./components/essay";
+import ImgBox from "./components/imgBox";
+import ToolBar from "./components/toolBar";
+import AsideNav from "./components/asideNav";
+import ReadMoreBtn from './components/readMoreBtn'
+import axios from "axios";
 export default {
+  asyncData() {
+    return axios.get("http://localhost:3000/test.md").then(res => {
+      return {
+        text: res.data
+      };
+    });
+  },
   data() {
     return {
       text: ""
     };
   },
-  mounted() {
-    this.text = marked(
-      `'# Marked in the browser\n\nRendered by **marked**.'`,
-      { breaks: true }
-    );
+  components: {
+    Essay,
+    AsideNav,
+    ImgBox,
+    ToolBar,
+    ReadMoreBtn,
   }
 };
 </script>
-<style lang="scss" scoped>
+<style  scoped>
+.container {
+  display: flex;
+  justify-content: center;
+}
+@media screen and (max-width: 1200px) {
+  .container {
+    flex-direction: column;
+  }
+}
 </style>
 

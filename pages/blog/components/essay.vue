@@ -1,6 +1,8 @@
 <template>
   <div class="box">
-    <img class="img" src="react.jpg" alt="essay-desc" />
+    <a href="/blog/pages/page">
+      <div class="img"></div>
+    </a>
     <div class="content">
       <header class="head">
         <h3>
@@ -51,6 +53,8 @@ $essay-box-width: 370px !default;
   .img {
     width: 100%;
     height: 180px;
+    cursor: pointer;
+    background: url("/react.jpg") center/cover;
   }
   .content {
     border: 1px solid #f4f4f4;

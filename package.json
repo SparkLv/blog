@@ -1,9 +1,13 @@
 {
   "name": "blog",
   "scripts": {
-    "dev": "nuxt"
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "highlightjs": "^9.10.0",
     "marked": "^0.4.0",
     "node-sass": "^4.9.0",
     "nuxt": "^1.4.1",
