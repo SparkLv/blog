@@ -31,8 +31,8 @@ export default {
         case "finance":
           return "FINANCE";
           break;
-        case "literature":
-          return "LITERATURE";
+        case "thinking":
+          return "THINKING";
           break;
         default:
           return "BLOG";
@@ -46,7 +46,7 @@ export default {
         case "finance":
           return "bg3";
           break;
-        case "literature":
+        case "thinking":
           return "bg4";
           break;
         default:
@@ -82,7 +82,7 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
-    font-size: 6rem;
+    font-size: 70px;
   }
   .bg-image-box {
     position: relative;

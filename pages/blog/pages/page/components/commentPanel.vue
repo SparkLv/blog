@@ -26,13 +26,13 @@ export default {};
 .comment-box {
   height: 330px;
   box-sizing: border-box;
-  padding: 20px;
   background: #303b4e;
   position: relative;
   form {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: 70%;
   }
   label {
@@ -45,8 +45,12 @@ export default {};
       width: calc(100% - 100px);
     }
     input {
-      height: 30px;
+      height: 28px;
     }
+  }
+
+  label:last-child {
+    margin-bottom: 0;
   }
   input[type="submit"] {
     background: #c52f31;

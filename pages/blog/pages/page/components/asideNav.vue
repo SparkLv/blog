@@ -2,7 +2,7 @@
     <aside class="aside">
         <h4>更多推荐</h4>
         <nav class="more-essay-box">
-            <MoreEssay v-for="item in 6" :key="item"></MoreEssay>
+            <MoreEssay v-for="item in 4" :key="item"></MoreEssay>
         </nav>
         <h4>留言给我</h4>
         <CommentPanel></CommentPanel>
