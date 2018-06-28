@@ -6,6 +6,8 @@ import '..\\assets\\common\\styles\\index.scss'
 
 let layouts = {
 
+  "_admin": () => import('..\\layouts\\admin.vue'  /* webpackChunkName: "layouts_admin" */).then(m => m.default || m),
+
   "_default": () => import('..\\layouts\\default.vue'  /* webpackChunkName: "layouts_default" */).then(m => m.default || m)
 
 }

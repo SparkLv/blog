@@ -4,6 +4,8 @@ body {
   padding: 0;
   font-family: Helvetica, Tahoma, Arial, "Heiti SC", "Microsoft YaHei",
     "WenQuanYi Micro Hei";
+  font-family: "Menlo", "DejaVu Sans Mono", "Liberation Mono", "Consolas",
+    "Ubuntu Mono", "Courier New", "andale mono", "lucida console", monospace;
 }
 
 ul {
@@ -13,5 +15,9 @@ ul {
 
 a {
   text-decoration: none;
-  color:#333;
+  color: #333;
+}
+
+input {
+  outline: none;
 }
