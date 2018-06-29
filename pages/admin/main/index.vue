@@ -1,6 +1,6 @@
 <template>
     <div class="box">
-        <Tool></Tool>
+        <Tool :content="mdText"></Tool>
         <MD @mdScroll="mdScroll" @getMd="getMd"></MD>
         <MDPre :top="top" :mdHTML="mdHTML"></MDPre>
     </div>
@@ -15,6 +15,7 @@ export default {
   data() {
     return {
       mdHTML: "",
+      mdText: "",
       top: 0
     };
   },
@@ -26,6 +27,7 @@ export default {
   methods: {
     getMd(text) {
       this.mdHTML = marked(text);
+      this.mdText = text;
     },
     mdScroll(top) {
       this.top = top;
