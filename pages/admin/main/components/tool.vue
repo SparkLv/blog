@@ -2,19 +2,53 @@
     <div class="tool-box">
         <el-form class="form" label-potision="left" label-width="100px">
             <el-form-item label="标题：">
-                <el-input class="title-input"></el-input>
+                <el-input v-model="addData.title" class="title-input"></el-input>
             </el-form-item>
-            <TagGroup></TagGroup>
-            <el-button class="sub-btn" type="primary">提 交</el-button>
+            <el-form-item label="描述：">
+                <el-input v-model="addData.remark" type="textarea" rows="4"></el-input>
+            </el-form-item>
+            <TagGroup @setTags="setTags"></TagGroup>
+            <UploadImg @setUrl="setUrl"></UploadImg>
+            <el-button @click="handleSure" class="sub-btn" type="primary">提 交</el-button>
         </el-form>
     </div>
 </template>
 <script>
-import TagGroup from './tagGroup'
+import TagGroup from "./tagGroup";
+import UploadImg from "./uploadImg";
+import { $blogs } from "~/plugins/api";
 export default {
-    components:{
-        TagGroup
+  data() {
+    return {
+      addData: {}
+    };
+  },
+  props: {
+    content: String
+  },
+  components: {
+    TagGroup,
+    UploadImg
+  },
+  methods: {
+    setTags(tags) {
+      this.addData.tags = tags;
+    },
+    setUrl(url) {
+      this.addData.imgUrl = url;
+    },
+    markTime() {
+      const now = new Date();
+      const date =
+        now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate();
+      return date;
+    },
+    handleSure() {
+      this.addData.updateTime = this.markTime();
+      this.addData.content = this.content;
+      $blogs.addBlog(this.addData);
     }
+  }
 };
 </script>
 <style lang="css" scoped>
