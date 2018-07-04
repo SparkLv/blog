@@ -1,19 +1,19 @@
 <template>
   <div class="box">
-    <a href="/blog/pages/page">
-      <div class="img"></div>
+    <a :href="`/blog/pages/page?id=${blog.id}`">
+      <div class="img" :style="`background: url(${blog.imgUrl}) center/cover;`"></div>
     </a>
     <div class="content">
       <header class="head">
         <h3>
-          <a href="/blog/pages/page">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</a>
+          <a href="/blog/pages/page">{{blog.title}}</a>
         </h3>
       </header>
-      <section class="desc">这是一段描述性文字这是一段描述性文字这是一段描述性文字这是一段描述性文字这是一段描述性文字这是一段描述性文字这是一段描述性文字这是一段描述性文字</section>
+      <section class="desc">{{blog.remark}}</section>
       <footer class="foot">
-        <span class="date">2018-06-22</span>
+        <span class="date">{{blog.updateTime}}</span>
         <div class="tag-group">
-          <Tag v-for="item in tagArr" :key="item.text" :text="item.text" :color="item.color" :bgColor="item.bgColor"></Tag>
+          <el-tag v-for="item in blog.tagsObj" :key="item.name" :style="{margin:'0 4px',cursor:'pointer',color:item.color,backgroundColor:item.bgColor}">{{item.name}}</el-tag>
         </div>
       </footer>
     </div>
@@ -24,12 +24,14 @@ import Tag from "./tag";
 export default {
   data() {
     return {
-      tagArr: [
-        { text: "HTML", color: "#fff", bgColor: "skyblue" },
-        { text: "CSS", color: "#eee", bgColor: "skyblue" },
-        { text: "Javascript", color: "#eee", bgColor: "skyblue" }
-      ]
+      tagArr: []
     };
+  },
+  props: {
+    blog: Object
+  },
+  updated(){
+    console.log(this.blog)
   },
   components: {
     Tag
@@ -54,7 +56,6 @@ $essay-box-width: 370px !default;
     width: 100%;
     height: 180px;
     cursor: pointer;
-    background: url("/react.jpg") center/cover;
   }
   .content {
     border: 1px solid #f4f4f4;

@@ -7,6 +7,10 @@ export default class CMDB extends config {
     const path = `/${pub}`;
     return this.comGet(path);
   }
+  static getBlogById(id) {
+    const path = `/${pub}/${id}`;
+    return this.comGet(path);
+  }
   static addBlog(data) {
     const path = `/${pub}`;
     return this.comPost(path, data);

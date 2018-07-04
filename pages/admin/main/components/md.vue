@@ -39,6 +39,7 @@ export default {
   box-sizing: border-box;
   resize: none;
   outline: none;
-  overflow-y: scroll;
+  overflow: auto;
+  border-right:15px solid #eee;
 }
 </style>
