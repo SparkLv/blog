@@ -1,10 +1,10 @@
 <template>
   <article class="essay-page">
-    <ImgBox></ImgBox>
+    <ImgBox :url="blog.imgUrl"></ImgBox>
     <ToolBar></ToolBar>
     <div class="container">
-      <Essay :text="text"></Essay>
-      <AsideNav></AsideNav>
+      <Essay :text="blog.content"></Essay>
+      <!-- <AsideNav></AsideNav> -->
     </div>
     <ReadMoreBtn></ReadMoreBtn>
   </article>
@@ -14,19 +14,20 @@ import Essay from "./components/essay";
 import ImgBox from "./components/imgBox";
 import ToolBar from "./components/toolBar";
 import AsideNav from "./components/asideNav";
-import ReadMoreBtn from './components/readMoreBtn'
+import ReadMoreBtn from "./components/readMoreBtn";
 import axios from "axios";
+import { $blogs } from "~/plugins/api";
 export default {
-  asyncData() {
-    return axios.get("http://localhost:3000/test.md").then(res => {
-      return {
-        text: res.data
-      };
-    });
+  async asyncData({ query }) {
+    const res = await $blogs.getBlogById(query.id);
+    console.log('sss');
+    return {
+      blog: res
+    };
   },
   data() {
     return {
-      text: ""
+      blog: {}
     };
   },
   components: {
@@ -34,19 +35,10 @@ export default {
     AsideNav,
     ImgBox,
     ToolBar,
-    ReadMoreBtn,
+    ReadMoreBtn
   }
 };
 </script>
 <style  scoped>
-.container {
-  display: flex;
-  justify-content: center;
-}
-@media screen and (max-width: 1200px) {
-  .container {
-    flex-direction: column;
-  }
-}
 </style>
 

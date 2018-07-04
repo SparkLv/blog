@@ -4,11 +4,14 @@
             <el-form-item label="标题：">
                 <el-input v-model="addData.title" class="title-input"></el-input>
             </el-form-item>
+            <el-form-item label="图片：">
+                <el-input v-model="addData.imgUrl"></el-input>
+            </el-form-item>
             <el-form-item label="描述：">
                 <el-input v-model="addData.remark" type="textarea" rows="4"></el-input>
             </el-form-item>
             <TagGroup @setTags="setTags"></TagGroup>
-            <UploadImg @setUrl="setUrl"></UploadImg>
+            <!-- <UploadImg @setUrl="setUrl"></UploadImg> -->
             <el-button @click="handleSure" class="sub-btn" type="primary">提 交</el-button>
         </el-form>
     </div>

@@ -63,7 +63,7 @@ export default {
     sel(index, num) {
       this.selTags.push(this.tags[`tags${num}`][index]);
       this.tags[`tags${num}`].splice(index, 1);
-      this.$emit("setTags", this.selTags.join(","));
+      this.$emit("setTags", this.selTags.map((item)=>{return item.id}).join(","));
     },
     tabChange() {
       this.selTags = [];
@@ -76,6 +76,7 @@ export default {
         return a.id - b.id;
       });
       this.selTags.splice(index, 1);
+      this.$emit("setTags", this.selTags.map((item)=>{return item.id}).join(","));
     }
   }
 };

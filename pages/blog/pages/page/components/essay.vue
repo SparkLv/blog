@@ -34,7 +34,6 @@ export default {
 </script>
 <style scoped>
 .essay {
-  flex: 2;
   font-family: "Menlo", "DejaVu Sans Mono", "Liberation Mono", "Consolas",
     "Ubuntu Mono", "Courier New", "andale mono", "lucida console", monospace;
   margin: 30px auto 50px;
@@ -42,6 +41,7 @@ export default {
   padding: 30px 80px;
   border-right: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
+  width: 75%;
 }
 
 .essay >>> h1 {
