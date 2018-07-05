@@ -1,7 +1,7 @@
 import axios from "axios";
 import Vue from "vue";
 
-let ip = "http://10.0.52.22:2420";
+let ip = "http://0.0.0.0:2420";
 
 axios.interceptors.request.use(config => {
   // config.headers.Token = "abc";
