@@ -28,16 +28,16 @@
     "pages_admin_index.4f4a1910664fd637ef1d.js",
     "layouts_admin.6c1238b8069078607c9d.js",
     "vendor.dad6376d5ef5a3177ca4.js",
-    "app.e5db0cc4379289531f11.js",
-    "manifest.5ffb499d851ebe7528d2.js",
+    "app.a0219827a1bdefe3ca57.js",
+    "manifest.803f60a4caa70c9672b9.js",
     "LICENSES",
     "index.spa.html",
     "index.ssr.html"
   ],
   "initial": [
-    "manifest.5ffb499d851ebe7528d2.js",
+    "manifest.803f60a4caa70c9672b9.js",
     "vendor.dad6376d5ef5a3177ca4.js",
-    "app.e5db0cc4379289531f11.js"
+    "app.a0219827a1bdefe3ca57.js"
   ],
   "async": [
     "pages_blog_pages_page_components_imgBox.5a4025339d216aa58c45.js",
