@@ -1,7 +1,7 @@
 <template>
   <article>
     <Head :type="type" />
-    <EssayBox :blogs="blogs"></EssayBox>
+    <EssayBox :type="type" :blogs="blogs"></EssayBox>
   </article>
 </template>
 <script>
