@@ -86,72 +86,72 @@ export function createRouter () {
     routes: [
 		{
 			path: "/admin",
-			component: _50574424,
+			component: _39eff43f,
 			name: "admin"
 		},
 		{
 			path: "/blog",
-			component: _7ca32c16,
+			component: _0abaed08,
 			name: "blog"
 		},
 		{
 			path: "/admin/main",
-			component: _130fec15,
+			component: _01eee4df,
 			name: "admin-main"
 		},
 		{
 			path: "/blog/components/bottom",
-			component: _02a3e1a4,
+			component: _cfc29d0c,
 			name: "blog-components-bottom"
 		},
 		{
 			path: "/blog/components/essayBox",
-			component: _1bb80cd1,
+			component: _1b894c1d,
 			name: "blog-components-essayBox"
 		},
 		{
 			path: "/blog/components/head",
-			component: _29af5f23,
+			component: _1987b722,
 			name: "blog-components-head"
 		},
 		{
 			path: "/blog/components/topNav",
-			component: _ca7d01de,
+			component: _3432215d,
 			name: "blog-components-topNav"
 		},
 		{
 			path: "/blog/components/tag",
-			component: _804175b2,
+			component: _423ea65b,
 			name: "blog-components-tag"
 		},
 		{
 			path: "/blog/components/essay",
-			component: _965d096c,
+			component: _1cdd5f7e,
 			name: "blog-components-essay"
 		},
 		{
 			path: "/blog/pages/page",
-			component: _5d1aec8c,
+			component: _3da13b37,
 			name: "blog-pages-page"
 		},
 		{
 			path: "/admin/main/components/tagGroup",
-			component: _0dabcbb0,
+			component: _2053532b,
 			name: "admin-main-components-tagGroup"
 		},
 		{
 			path: "/admin/main/components/uploadImg",
-			component: _390f8def,
+			component: _11e51568,
 			name: "admin-main-components-uploadImg"
 		},
 		{
 			path: "/admin/main/components/tool",
-			component: _15be48bb,
+			component: _f9cb0984,
 			name: "admin-main-components-tool"
 		},
 		{
 			path: "/admin/main/components/mdPre",
-			component: _7a7dd20e,
+			component: _00eb34d6,
 			name: "admin-main-components-mdPre"
 		},
 		{
@@ -166,17 +166,17 @@ export function createRouter () {
 		},
 		{
 			path: "/blog/pages/page/components/readMoreBtn",
-			component: _b9519f96,
+			component: _34a46843,
 			name: "blog-pages-page-components-readMoreBtn"
 		},
 		{
 			path: "/blog/pages/page/components/toolBar",
-			component: _68407c3f,
+			component: _bfd02966,
 			name: "blog-pages-page-components-toolBar"
 		},
 		{
 			path: "/blog/pages/page/components/imgBox",
-			component: _17a41c54,
+			component: _42bb9386,
 			name: "blog-pages-page-components-imgBox"
 		},
 		{
@@ -186,12 +186,12 @@ export function createRouter () {
 		},
 		{
 			path: "/blog/pages/page/components/essay",
-			component: _7258593e,
+			component: _6f90a422,
 			name: "blog-pages-page-components-essay"
 		},
 		{
 			path: "/",
-			component: _3def2417,
+			component: _785816bf,
 			name: "index"
 		}
     ],
