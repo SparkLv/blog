@@ -3,16 +3,18 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt start"
+    "start": "nuxt start",
+    "pro": "nuxt start"
   },
   "config": {
     "nuxt": {
-      "host": "127.0.0.1",
+      "host": "0.0.0.0",
       "port": "2400"
     }
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "cross-env": "^5.2.0",
     "element-ui": "^2.4.2",
     "highlightjs": "^9.10.0",
     "marked": "^0.4.0",
