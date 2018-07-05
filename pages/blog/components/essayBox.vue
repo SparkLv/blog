@@ -15,15 +15,30 @@ export default {
     };
   },
   props: {
-    blogs: Array
+    blogs: Array,
+    type: String
   },
   components: {
     Essay
   },
   computed: {
     formatTag() {
+      let type = "";
+      switch (this.type) {
+        case "tech":
+          type = '1';
+          break;
+        case "finance":
+          type = '2';
+          break;
+        case "thinking":
+          type = '3';
+          break;
+        default:
+          type = "";
+      }
       const data = JSON.parse(JSON.stringify(this.blogs));
-      data.forEach(blog => {
+      data.forEach((blog, index) => {
         blog.tagsObj = [];
         const idArr = blog.tags.split(",");
         this.allTags.forEach(tag => {
@@ -32,7 +47,12 @@ export default {
           }
         });
       });
-      return data;
+      const data2 = data.filter(item => {
+        return item.tagsObj.some(item2 => {
+          return type ? item2.code === type : true;
+        });
+      });
+      return data2;
     }
   },
   created() {

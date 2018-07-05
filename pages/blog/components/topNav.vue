@@ -7,7 +7,7 @@
              <li :class="type==='finance'?'active':''">
                 <nuxt-link to="/blog?type=finance">Finance</nuxt-link>
             </li>
-            <li :class="type==='literature'?'active':''">
+            <li :class="type==='thinking'?'active':''">
                 <nuxt-link to="/blog?type=thinking">Thinking</nuxt-link>
             </li>
         </ul>
@@ -22,7 +22,7 @@
                 <li :class="type==='finance'?'activeLi':''">
                     <nuxt-link to="/blog?type=finance">Finance</nuxt-link>
                 </li>
-                <li :class="type==='literature'?'activeLi':''">
+                <li :class="type==='thinking'?'activeLi':''">
                     <nuxt-link to="/blog?type=thinking">Thinking</nuxt-link>
                 </li>
             </ul>
