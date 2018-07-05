@@ -5,9 +5,11 @@
     "build": "nuxt build",
     "start": "nuxt start"
   },
-  "nuxt": {
-    "host": "127.0.0.1",
-    "port": "2400"
+  "config": {
+    "nuxt": {
+      "host": "127.0.0.1",
+      "port": "2400"
+    }
   },
   "dependencies": {
     "axios": "^0.18.0",
