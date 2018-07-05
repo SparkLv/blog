@@ -4,7 +4,7 @@
         <TopNav :type="type"></TopNav>
         <span class="title">{{getBgText}}</span>
         <div :style="{transform:`translateY(${headMove})`}" class="bg-image-box">
-            <img class="bg-image" :src="`${getBgImg}.jpg`" alt="bg-image" />
+            <img class="bg-image" :src="`http://ozgnrqjtt.bkt.clouddn.com/${getBgImg}.jpg`" alt="bg-image" />
         </div>
     </header>
 </template>
