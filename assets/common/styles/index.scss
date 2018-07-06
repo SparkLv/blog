@@ -21,3 +21,18 @@ a {
 input {
   outline: none;
 }
+
+@keyframes widthchange {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes cursor {
+  from {
+    border-right: 5px solid #fff;
+  }
+  to {
+    border-right: none;
+  }
+}
