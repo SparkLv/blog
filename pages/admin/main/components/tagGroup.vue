@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="display:inline-block">
     <el-form-item label="已选择：">
       <el-tag v-for="(item,index) in selTags" closable @close="delTag(index)" :key="index" :style="{margin:'5px',cursor:'pointer',color:item.color,backgroundColor:item.bgColor}">{{item.name}}</el-tag>
     </el-form-item>
@@ -9,19 +9,19 @@
           <span @click="sel(index,1)" v-for="(item,index) in tags.tags1" :key="index">
             <el-tag :style="{margin:'5px',cursor:'pointer',color:item.color,backgroundColor:item.bgColor}">{{item.name}}</el-tag>
           </span>
-          <el-button type="text" @click="addTagShow=true" style="color:#eee;font-size:18px;;margin-left:5px;">+新增</el-button>
+          <el-button type="text" @click="addTagShow=true" style="color:#333;font-size:18px;;margin-left:5px;">+新增</el-button>
         </el-tab-pane>
         <el-tab-pane label="Finance" name="2">
           <span @click="sel(index,2)" v-for="(item,index) in tags.tags2" :key="index">
             <el-tag :style="{margin:'5px',cursor:'pointer',color:item.color,backgroundColor:item.bgColor}">{{item.name}}</el-tag>
           </span>
-          <el-button type="text" @click="addTagShow=true" style="color:#eee;font-size:18px;;margin-left:5px;">+新增</el-button>
+          <el-button type="text" @click="addTagShow=true" style="color:#333;font-size:18px;;margin-left:5px;">+新增</el-button>
         </el-tab-pane>
         <el-tab-pane label="Thinking" name="3">
           <span @click="sel(index,3)" v-for="(item,index) in tags.tags3" :key="index">
             <el-tag :style="{margin:'5px',cursor:'pointer',color:item.color,backgroundColor:item.bgColor}">{{item.name}}</el-tag>
           </span>
-          <el-button type="text" @click="addTagShow=true" style="color:#eee;font-size:18px;margin-left:5px;">+新增</el-button>
+          <el-button type="text" @click="addTagShow=true" style="color:#333;font-size:18px;margin-left:5px;">+新增</el-button>
         </el-tab-pane>
       </el-tabs>
       <AddTag @refresh="getTags" :code="code" v-if="addTagShow" @close="addTagShow=false"></AddTag>
@@ -63,7 +63,14 @@ export default {
     sel(index, num) {
       this.selTags.push(this.tags[`tags${num}`][index]);
       this.tags[`tags${num}`].splice(index, 1);
-      this.$emit("setTags", this.selTags.map((item)=>{return item.id}).join(","));
+      this.$emit(
+        "setTags",
+        this.selTags
+          .map(item => {
+            return item.id;
+          })
+          .join(",")
+      );
     },
     tabChange() {
       this.selTags = [];
@@ -76,20 +83,26 @@ export default {
         return a.id - b.id;
       });
       this.selTags.splice(index, 1);
-      this.$emit("setTags", this.selTags.map((item)=>{return item.id}).join(","));
+      this.$emit(
+        "setTags",
+        this.selTags
+          .map(item => {
+            return item.id;
+          })
+          .join(",")
+      );
     }
   }
 };
 </script>
 <style lang="css" scoped>
-.tag-tab >>> .el-tabs__item {
-  color: #fff !important;
-  font-size: 16px;
-}
 .tag-tab >>> .is-active {
-  color: #ca6854 !important;
+  color: #104e8b !important;
 }
 .tag-tab >>> .el-tabs__active-bar {
-  background: #ca6854 !important;
+  background: #104e8b !important;
+}
+* >>> .el-tabs__nav-wrap::after {
+  background: #8a8a8a;
 }
 </style>

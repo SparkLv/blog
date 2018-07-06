@@ -18,6 +18,7 @@ import CommentBox from "./components/commentBox";
 import axios from "axios";
 import { $blogs } from "~/plugins/api";
 export default {
+  layout:'blog',
   async asyncData({ query }) {
     const res = await $blogs.getBlogById(query.id);
     return {
