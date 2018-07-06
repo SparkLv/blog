@@ -3,7 +3,7 @@
     <Logo class="logo"></Logo>
     <TopNav :type="type"></TopNav>
     <p :key="getBgText" :style="textStyle" class="title">
-      <span v-for="item in getBgText" :Key="item">{{item}}</span>
+      {{getBgText}}
     </p>
     <div :style="{transform:`translateY(${headMove})`}" class="bg-image-box">
       <img class="bg-image" :src="`http://ozgnrqjtt.bkt.clouddn.com/${getBgImg}.jpg`" alt="bg-image" />
@@ -41,8 +41,8 @@ export default {
           return "THINKING";
           break;
         default:
-          this.setTextStyle(4);
-          return "BLOG";
+          this.setTextStyle(18);
+          return "Welcome To My BLOG";
       }
     },
     getBgImg() {
@@ -69,7 +69,8 @@ export default {
   },
   methods: {
     setTextStyle(num) {
-      this.textStyle = `width: ${num}ch;animation: widthchange ${0.3*num}s steps(${num}), cursor ${0.3*num/6}s 6 forwards;`;
+      this.textStyle = `width: ${num}ch;animation: widthchange ${0.3 *
+        num}s steps(${num}), cursor ${0.3 * num / 6}s 6 forwards;`;
     },
     bgImgScroll() {
       this.headMove = document.documentElement.scrollTop + "px";
@@ -116,5 +117,6 @@ export default {
   // border-right: 5px solid #fff;
   line-height: 1;
   overflow: hidden;
+  white-space: nowrap;
 }
 </style>

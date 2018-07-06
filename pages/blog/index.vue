@@ -10,6 +10,7 @@ import EssayBox from "./components/essayBox";
 import { $blogs } from "~/plugins/api";
 
 export default {
+  layout:'blog',
   async asyncData({ query}) {
     let blogs = [];
     const res = await $blogs.getBlogs();

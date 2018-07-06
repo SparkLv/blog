@@ -1,8 +1,10 @@
 <template>
     <div class="box">
         <Tool :content="mdText"></Tool>
-        <MD @mdScroll="mdScroll" @getMd="getMd"></MD>
-        <MDPre :top="top" :mdHTML="mdHTML"></MDPre>
+        <div class="md-box">
+            <MD @mdScroll="mdScroll" @getMd="getMd"></MD>
+            <MDPre :top="top" :mdHTML="mdHTML"></MDPre>
+        </div>
     </div>
 </template>
 <script>
@@ -38,6 +40,9 @@ export default {
 <style lang="scss" scoped>
 .box {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+}
+.md-box{
+    display:flex;
 }
 </style>
