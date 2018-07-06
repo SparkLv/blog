@@ -2,13 +2,13 @@
     <nav class="top-nav">
         <ul v-if="!collapse">
             <li :class="type==='tech'?'active':''">
-                <nuxt-link to="/blog?type=tech">Technology</nuxt-link>
+                <nuxt-link to="?type=tech">Technology</nuxt-link>
             </li>
              <li :class="type==='finance'?'active':''">
-                <nuxt-link to="/blog?type=finance">Finance</nuxt-link>
+                <nuxt-link to="?type=finance">Finance</nuxt-link>
             </li>
             <li :class="type==='thinking'?'active':''">
-                <nuxt-link to="/blog?type=thinking">Thinking</nuxt-link>
+                <nuxt-link to="?type=thinking">Thinking</nuxt-link>
             </li>
         </ul>
         <div v-else @click="showList=!showList" class="collapse-btn">
@@ -17,13 +17,13 @@
             <hr>
             <ul v-if="showList">
                 <li :class="type==='tech'?'activeLi':''">
-                    <nuxt-link to="/blog?type=tech">Technology</nuxt-link>
+                    <nuxt-link to="?type=tech">Technology</nuxt-link>
                 </li>
                 <li :class="type==='finance'?'activeLi':''">
-                    <nuxt-link to="/blog?type=finance">Finance</nuxt-link>
+                    <nuxt-link to="?type=finance">Finance</nuxt-link>
                 </li>
                 <li :class="type==='thinking'?'activeLi':''">
-                    <nuxt-link to="/blog?type=thinking">Thinking</nuxt-link>
+                    <nuxt-link to="?type=thinking">Thinking</nuxt-link>
                 </li>
             </ul>
         </div>

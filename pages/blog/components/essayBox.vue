@@ -74,6 +74,7 @@ export default {
   padding: 0 10px 50px;
   box-sizing: border-box;
   background: #f5f6f7;
+  min-height:800px;
 }
 .essay-box {
   display: flex;
