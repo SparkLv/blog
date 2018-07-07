@@ -3,28 +3,28 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const _50574424 = () => import('..\\pages\\admin\\index.vue' /* webpackChunkName: "pages_admin_index" */).then(m => m.default || m)
-const _7ca32c16 = () => import('..\\pages\\blog\\index.vue' /* webpackChunkName: "pages_blog_index" */).then(m => m.default || m)
-const _130fec15 = () => import('..\\pages\\admin\\main\\index.vue' /* webpackChunkName: "pages_admin_main_index" */).then(m => m.default || m)
-const _02a3e1a4 = () => import('..\\pages\\blog\\components\\bottom.vue' /* webpackChunkName: "pages_blog_components_bottom" */).then(m => m.default || m)
-const _1bb80cd1 = () => import('..\\pages\\blog\\components\\essayBox.vue' /* webpackChunkName: "pages_blog_components_essayBox" */).then(m => m.default || m)
-const _29af5f23 = () => import('..\\pages\\blog\\components\\head.vue' /* webpackChunkName: "pages_blog_components_head" */).then(m => m.default || m)
-const _ca7d01de = () => import('..\\pages\\blog\\components\\topNav.vue' /* webpackChunkName: "pages_blog_components_topNav" */).then(m => m.default || m)
-const _804175b2 = () => import('..\\pages\\blog\\components\\tag.vue' /* webpackChunkName: "pages_blog_components_tag" */).then(m => m.default || m)
-const _965d096c = () => import('..\\pages\\blog\\components\\essay.vue' /* webpackChunkName: "pages_blog_components_essay" */).then(m => m.default || m)
-const _5d1aec8c = () => import('..\\pages\\blog\\pages\\page\\index.vue' /* webpackChunkName: "pages_blog_pages_page_index" */).then(m => m.default || m)
-const _0dabcbb0 = () => import('..\\pages\\admin\\main\\components\\tagGroup.vue' /* webpackChunkName: "pages_admin_main_components_tagGroup" */).then(m => m.default || m)
-const _390f8def = () => import('..\\pages\\admin\\main\\components\\uploadImg.vue' /* webpackChunkName: "pages_admin_main_components_uploadImg" */).then(m => m.default || m)
-const _15be48bb = () => import('..\\pages\\admin\\main\\components\\tool.vue' /* webpackChunkName: "pages_admin_main_components_tool" */).then(m => m.default || m)
-const _7a7dd20e = () => import('..\\pages\\admin\\main\\components\\mdPre.vue' /* webpackChunkName: "pages_admin_main_components_mdPre" */).then(m => m.default || m)
-const _49227bfa = () => import('..\\pages\\admin\\main\\components\\md.vue' /* webpackChunkName: "pages_admin_main_components_md" */).then(m => m.default || m)
-const _08bc2f1c = () => import('..\\pages\\admin\\main\\components\\addTag.vue' /* webpackChunkName: "pages_admin_main_components_addTag" */).then(m => m.default || m)
-const _b9519f96 = () => import('..\\pages\\blog\\pages\\page\\components\\readMoreBtn.vue' /* webpackChunkName: "pages_blog_pages_page_components_readMoreBtn" */).then(m => m.default || m)
-const _68407c3f = () => import('..\\pages\\blog\\pages\\page\\components\\toolBar.vue' /* webpackChunkName: "pages_blog_pages_page_components_toolBar" */).then(m => m.default || m)
-const _17a41c54 = () => import('..\\pages\\blog\\pages\\page\\components\\imgBox.vue' /* webpackChunkName: "pages_blog_pages_page_components_imgBox" */).then(m => m.default || m)
-const _4165e438 = () => import('..\\pages\\blog\\pages\\page\\components\\commentBox.vue' /* webpackChunkName: "pages_blog_pages_page_components_commentBox" */).then(m => m.default || m)
-const _7258593e = () => import('..\\pages\\blog\\pages\\page\\components\\essay.vue' /* webpackChunkName: "pages_blog_pages_page_components_essay" */).then(m => m.default || m)
-const _3def2417 = () => import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */).then(m => m.default || m)
+const _39eff43f = () => import('../pages/admin/index.vue' /* webpackChunkName: "pages/admin/index" */).then(m => m.default || m)
+const _0abaed08 = () => import('../pages/blog/index.vue' /* webpackChunkName: "pages/blog/index" */).then(m => m.default || m)
+const _01eee4df = () => import('../pages/admin/main/index.vue' /* webpackChunkName: "pages/admin/main/index" */).then(m => m.default || m)
+const _cfc29d0c = () => import('../pages/blog/components/bottom.vue' /* webpackChunkName: "pages/blog/components/bottom" */).then(m => m.default || m)
+const _1b894c1d = () => import('../pages/blog/components/essayBox.vue' /* webpackChunkName: "pages/blog/components/essayBox" */).then(m => m.default || m)
+const _1987b722 = () => import('../pages/blog/components/head.vue' /* webpackChunkName: "pages/blog/components/head" */).then(m => m.default || m)
+const _3432215d = () => import('../pages/blog/components/topNav.vue' /* webpackChunkName: "pages/blog/components/topNav" */).then(m => m.default || m)
+const _423ea65b = () => import('../pages/blog/components/tag.vue' /* webpackChunkName: "pages/blog/components/tag" */).then(m => m.default || m)
+const _1cdd5f7e = () => import('../pages/blog/components/essay.vue' /* webpackChunkName: "pages/blog/components/essay" */).then(m => m.default || m)
+const _3da13b37 = () => import('../pages/blog/pages/page/index.vue' /* webpackChunkName: "pages/blog/pages/page/index" */).then(m => m.default || m)
+const _2053532b = () => import('../pages/admin/main/components/tagGroup.vue' /* webpackChunkName: "pages/admin/main/components/tagGroup" */).then(m => m.default || m)
+const _11e51568 = () => import('../pages/admin/main/components/uploadImg.vue' /* webpackChunkName: "pages/admin/main/components/uploadImg" */).then(m => m.default || m)
+const _f9cb0984 = () => import('../pages/admin/main/components/tool.vue' /* webpackChunkName: "pages/admin/main/components/tool" */).then(m => m.default || m)
+const _00eb34d6 = () => import('../pages/admin/main/components/mdPre.vue' /* webpackChunkName: "pages/admin/main/components/mdPre" */).then(m => m.default || m)
+const _1c411986 = () => import('../pages/admin/main/components/md.vue' /* webpackChunkName: "pages/admin/main/components/md" */).then(m => m.default || m)
+const _e0546642 = () => import('../pages/admin/main/components/addTag.vue' /* webpackChunkName: "pages/admin/main/components/addTag" */).then(m => m.default || m)
+const _34a46843 = () => import('../pages/blog/pages/page/components/readMoreBtn.vue' /* webpackChunkName: "pages/blog/pages/page/components/readMoreBtn" */).then(m => m.default || m)
+const _bfd02966 = () => import('../pages/blog/pages/page/components/toolBar.vue' /* webpackChunkName: "pages/blog/pages/page/components/toolBar" */).then(m => m.default || m)
+const _42bb9386 = () => import('../pages/blog/pages/page/components/imgBox.vue' /* webpackChunkName: "pages/blog/pages/page/components/imgBox" */).then(m => m.default || m)
+const _ceab1b2c = () => import('../pages/blog/pages/page/components/commentBox.vue' /* webpackChunkName: "pages/blog/pages/page/components/commentBox" */).then(m => m.default || m)
+const _6f90a422 = () => import('../pages/blog/pages/page/components/essay.vue' /* webpackChunkName: "pages/blog/pages/page/components/essay" */).then(m => m.default || m)
+const _785816bf = () => import('../pages/index.vue' /* webpackChunkName: "pages/index" */).then(m => m.default || m)
 
 
 
@@ -86,112 +86,112 @@ export function createRouter () {
     routes: [
 		{
 			path: "/admin",
-			component: _50574424,
+			component: _39eff43f,
 			name: "admin"
 		},
 		{
 			path: "/blog",
-			component: _7ca32c16,
+			component: _0abaed08,
 			name: "blog"
 		},
 		{
 			path: "/admin/main",
-			component: _130fec15,
+			component: _01eee4df,
 			name: "admin-main"
 		},
 		{
 			path: "/blog/components/bottom",
-			component: _02a3e1a4,
+			component: _cfc29d0c,
 			name: "blog-components-bottom"
 		},
 		{
 			path: "/blog/components/essayBox",
-			component: _1bb80cd1,
+			component: _1b894c1d,
 			name: "blog-components-essayBox"
 		},
 		{
 			path: "/blog/components/head",
-			component: _29af5f23,
+			component: _1987b722,
 			name: "blog-components-head"
 		},
 		{
 			path: "/blog/components/topNav",
-			component: _ca7d01de,
+			component: _3432215d,
 			name: "blog-components-topNav"
 		},
 		{
 			path: "/blog/components/tag",
-			component: _804175b2,
+			component: _423ea65b,
 			name: "blog-components-tag"
 		},
 		{
 			path: "/blog/components/essay",
-			component: _965d096c,
+			component: _1cdd5f7e,
 			name: "blog-components-essay"
 		},
 		{
 			path: "/blog/pages/page",
-			component: _5d1aec8c,
+			component: _3da13b37,
 			name: "blog-pages-page"
 		},
 		{
 			path: "/admin/main/components/tagGroup",
-			component: _0dabcbb0,
+			component: _2053532b,
 			name: "admin-main-components-tagGroup"
 		},
 		{
 			path: "/admin/main/components/uploadImg",
-			component: _390f8def,
+			component: _11e51568,
 			name: "admin-main-components-uploadImg"
 		},
 		{
 			path: "/admin/main/components/tool",
-			component: _15be48bb,
+			component: _f9cb0984,
 			name: "admin-main-components-tool"
 		},
 		{
 			path: "/admin/main/components/mdPre",
-			component: _7a7dd20e,
+			component: _00eb34d6,
 			name: "admin-main-components-mdPre"
 		},
 		{
 			path: "/admin/main/components/md",
-			component: _49227bfa,
+			component: _1c411986,
 			name: "admin-main-components-md"
 		},
 		{
 			path: "/admin/main/components/addTag",
-			component: _08bc2f1c,
+			component: _e0546642,
 			name: "admin-main-components-addTag"
 		},
 		{
 			path: "/blog/pages/page/components/readMoreBtn",
-			component: _b9519f96,
+			component: _34a46843,
 			name: "blog-pages-page-components-readMoreBtn"
 		},
 		{
 			path: "/blog/pages/page/components/toolBar",
-			component: _68407c3f,
+			component: _bfd02966,
 			name: "blog-pages-page-components-toolBar"
 		},
 		{
 			path: "/blog/pages/page/components/imgBox",
-			component: _17a41c54,
+			component: _42bb9386,
 			name: "blog-pages-page-components-imgBox"
 		},
 		{
 			path: "/blog/pages/page/components/commentBox",
-			component: _4165e438,
+			component: _ceab1b2c,
 			name: "blog-pages-page-components-commentBox"
 		},
 		{
 			path: "/blog/pages/page/components/essay",
-			component: _7258593e,
+			component: _6f90a422,
 			name: "blog-pages-page-components-essay"
 		},
 		{
 			path: "/",
-			component: _3def2417,
+			component: _785816bf,
 			name: "index"
 		}
     ],
