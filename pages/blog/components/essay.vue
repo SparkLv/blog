@@ -30,9 +30,6 @@ export default {
   props: {
     blog: Object
   },
-  updated(){
-    console.log(this.blog)
-  },
   components: {
     Tag
   }

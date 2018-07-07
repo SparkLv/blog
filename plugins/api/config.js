@@ -1,7 +1,7 @@
 import axios from "axios";
 import Vue from "vue";
 
-let ip = "http://10.0.52.22:2420";
+const ip = process.env.NODE_ENV === "production"?'http://118.24.6.102:2420':'http://localhost:2420';
 
 axios.interceptors.request.use(config => {
   // config.headers.Token = "abc";

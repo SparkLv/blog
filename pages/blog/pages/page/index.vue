@@ -4,23 +4,23 @@
     <ToolBar></ToolBar>
     <div class="container">
       <Essay :text="blog.content"></Essay>
-      <!-- <AsideNav></AsideNav> -->
     </div>
     <ReadMoreBtn></ReadMoreBtn>
+    <!-- <CommentBox></CommentBox> -->
   </article>
 </template>
 <script>
 import Essay from "./components/essay";
 import ImgBox from "./components/imgBox";
 import ToolBar from "./components/toolBar";
-import AsideNav from "./components/asideNav";
 import ReadMoreBtn from "./components/readMoreBtn";
+import CommentBox from "./components/commentBox";
 import axios from "axios";
 import { $blogs } from "~/plugins/api";
 export default {
+  layout:'blog',
   async asyncData({ query }) {
     const res = await $blogs.getBlogById(query.id);
-    console.log('sss');
     return {
       blog: res
     };
@@ -32,10 +32,10 @@ export default {
   },
   components: {
     Essay,
-    AsideNav,
     ImgBox,
     ToolBar,
-    ReadMoreBtn
+    ReadMoreBtn,
+    CommentBox
   }
 };
 </script>

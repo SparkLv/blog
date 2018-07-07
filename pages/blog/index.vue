@@ -1,7 +1,7 @@
 <template>
   <article>
     <Head :type="type" />
-    <EssayBox :blogs="blogs"></EssayBox>
+    <EssayBox :type="type" :blogs="blogs"></EssayBox>
   </article>
 </template>
 <script>
@@ -10,6 +10,7 @@ import EssayBox from "./components/essayBox";
 import { $blogs } from "~/plugins/api";
 
 export default {
+  layout:'blog',
   async asyncData({ query}) {
     let blogs = [];
     const res = await $blogs.getBlogs();

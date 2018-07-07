@@ -39,6 +39,7 @@ export default {
   margin: 30px auto 50px;
   background: #fff;
   padding: 30px 80px;
+  border-left: 1px solid #e5e5e5;
   border-right: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
   width: 75%;

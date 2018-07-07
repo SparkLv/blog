@@ -39,6 +39,7 @@ export default {
         });
         this.addData = {};
         this.$emit("refresh");
+        this.$emit("close");
       }
     }
   }

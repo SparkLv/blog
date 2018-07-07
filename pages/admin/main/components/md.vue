@@ -31,7 +31,7 @@ export default {
     "Ubuntu Mono", "Courier New", "andale mono", "lucida console", monospace;
   letter-spacing: 2px;
   width: 100%;
-  height: 99vh;
+  min-height: 1000px;
   border: none;
   font-size: 16px;
   line-height: 20px;
