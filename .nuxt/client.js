@@ -80,28 +80,9 @@ async function loadAsyncComponents (to, from, next) {
   this._diffQuery = (this._queryChanged ? getQueryDiff(to.query, from.query) : [])
 
   
-  if (this._pathChanged && this.$loading.start) {
-    this.$loading.start()
-  }
-  
 
   try {
     const Components = await resolveRouteComponents(to)
-    
-    if (!this._pathChanged && this._queryChanged) {
-      // Add a marker on each component that it needs to refresh or not
-      const startLoader = Components.some((Component) => {
-        const watchQuery = Component.options.watchQuery
-        if (watchQuery === true) return true
-        if (Array.isArray(watchQuery)) {
-          return watchQuery.some((key) => this._diffQuery[key])
-        }
-        return false
-      })
-      if (startLoader && this.$loading.start) {
-        this.$loading.start()
-      }
-    }
     
     // Call next()
     next()
@@ -174,8 +155,8 @@ async function render (to, from, next) {
   // nextCalled is true when redirected
   let nextCalled = false
   const _next = path => {
-    if (from.path === path.path && this.$loading.finish) this.$loading.finish()
-    if (from.path !== path.path && this.$loading.pause) this.$loading.pause()
+    
+    
     if (nextCalled) return
     nextCalled = true
     const matches = []
@@ -281,14 +262,14 @@ async function render (to, from, next) {
 
       const hasAsyncData = Component.options.asyncData && typeof Component.options.asyncData === 'function'
       const hasFetch = !!Component.options.fetch
-      const loadingIncrease = (hasAsyncData && hasFetch) ? 30 : 45
+      
 
       // Call asyncData(context)
       if (hasAsyncData) {
         const promise = promisify(Component.options.asyncData, app.context)
         .then(asyncDataResult => {
           applyAsyncData(Component, asyncDataResult)
-          if(this.$loading.increase) this.$loading.increase(loadingIncrease)
+          
         })
         promises.push(promise)
       }
@@ -300,7 +281,7 @@ async function render (to, from, next) {
             p = Promise.resolve(p)
         }
         p.then(fetchResult => {
-          if(this.$loading.increase) this.$loading.increase(loadingIncrease)
+          
         })
         promises.push(p)
       }
@@ -310,7 +291,7 @@ async function render (to, from, next) {
 
     // If not redirected
     if (!nextCalled) {
-      if(this.$loading.finish) this.$loading.finish()
+      
       _lastPaths = Components.map((Component, i) => compile(to.matched[matches[i]].path)(to.params))
       next()
     }
@@ -401,6 +382,99 @@ function nuxtReady (_app) {
   })
 }
 
+
+// Special hot reload with asyncData(context)
+function getNuxtChildComponents($parent, $components = []) {
+  $parent.$children.forEach(($child) => {
+    if ($child.$vnode.data.nuxtChild && !$components.find(c =>(c.$options.__file === $child.$options.__file))) {
+      $components.push($child)
+    }
+    if ($child.$children && $child.$children.length) {
+      getNuxtChildComponents($child, $components)
+    }
+  })
+
+  return $components
+}
+
+function hotReloadAPI (_app) {
+  if (!module.hot) return
+
+  let $components = getNuxtChildComponents(_app.$nuxt, [])
+
+  $components.forEach(addHotReload.bind(_app))
+}
+
+function addHotReload ($component, depth) {
+  if ($component.$vnode.data._hasHotReload) return
+  $component.$vnode.data._hasHotReload = true
+
+  var _forceUpdate = $component.$forceUpdate.bind($component.$parent)
+
+  $component.$vnode.context.$forceUpdate = async () => {
+    let Components = getMatchedComponents(router.currentRoute)
+    let Component = Components[depth]
+    if (!Component) return _forceUpdate()
+    if (typeof Component === 'object' && !Component.options) {
+      // Updated via vue-router resolveAsyncComponents()
+      Component = Vue.extend(Component)
+      Component._Ctor = Component
+    }
+    this.error()
+    let promises = []
+    const next = function (path) {
+      
+      router.push(path)
+    }
+    await setContext(app, {
+      route: router.currentRoute,
+      isHMR: true,
+      next: next.bind(this)
+    })
+    const context = app.context
+    
+    callMiddleware.call(this, Components, context)
+    .then(() => {
+      // If layout changed
+      if (depth !== 0) return Promise.resolve()
+      let layout = Component.options.layout || 'default'
+      if (typeof layout === 'function') {
+        layout = layout(context)
+      }
+      if (this.layoutName === layout) return Promise.resolve()
+      let promise = this.loadLayout(layout)
+      promise.then(() => {
+        this.setLayout(layout)
+        Vue.nextTick(() => hotReloadAPI(this))
+      })
+      return promise
+    })
+    .then(() => {
+      return callMiddleware.call(this, Components, context, this.layout)
+    })
+    .then(() => {
+      // Call asyncData(context)
+      let pAsyncData = promisify(Component.options.asyncData || noopData, context)
+      pAsyncData.then((asyncDataResult) => {
+        applyAsyncData(Component, asyncDataResult)
+        
+      })
+      promises.push(pAsyncData)
+      // Call fetch()
+      Component.options.fetch = Component.options.fetch || noopFetch
+      let pFetch = Component.options.fetch(context)
+      if (!pFetch || (!(pFetch instanceof Promise) && (typeof pFetch.then !== 'function'))) { pFetch = Promise.resolve(pFetch) }
+      
+      promises.push(pFetch)
+      return Promise.all(promises)
+    })
+    .then(() => {
+      
+      _forceUpdate()
+      setTimeout(() => hotReloadAPI(this), 100)
+    })
+  }
+}
 
 
 async function mountApp(__app) {
