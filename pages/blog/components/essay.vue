@@ -6,7 +6,7 @@
     <div class="content">
       <header class="head">
         <h3>
-          <a href="/blog/pages/page">{{blog.title}}</a>
+          <a :href="`/blog/pages/page?id=${blog.id}`">{{blog.title}}</a>
         </h3>
       </header>
       <section class="desc">{{blog.remark}}</section>
@@ -49,14 +49,14 @@ $essay-box-width: 370px !default;
   flex-direction: column;
   overflow: hidden;
   background: #fff;
+  box-shadow: 8px 8px 5px #aaa;
   .img {
     width: 100%;
     height: 180px;
     cursor: pointer;
   }
   .content {
-    border: 1px solid #f4f4f4;
-    border-top: none;
+    border-left: 1px solid #d1d2d3;
     height: 220px;
     box-sizing: border-box;
     padding: 0 10px;

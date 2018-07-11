@@ -1,12 +1,12 @@
 <template>
-    <section class="essay">
-        <div v-html="md"></div>
-    </section>
+  <section class="essay">
+    <div v-html="md"></div>
+  </section>
 </template>
 <script>
 import marked from "marked";
 import hljs from "highlightjs";
-import "highlightjs/styles/ocean.css";
+import "highlightjs/styles/github.css";
 export default {
   data() {
     return {
@@ -33,6 +33,9 @@ export default {
 };
 </script>
 <style scoped>
+* >>> .hljs {
+  border: 1px solid #d0cdc7;
+}
 .essay {
   font-family: "Menlo", "DejaVu Sans Mono", "Liberation Mono", "Consolas",
     "Ubuntu Mono", "Courier New", "andale mono", "lucida console", monospace;

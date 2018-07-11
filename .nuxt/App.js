@@ -1,16 +1,16 @@
 import Vue from 'vue'
 
 
-import '../assets/common/styles/index.scss'
+import '..\\assets\\common\\styles\\index.scss'
 
 
 let layouts = {
 
-  "_admin": () => import('../layouts/admin.vue'  /* webpackChunkName: "layouts/admin" */).then(m => m.default || m),
+  "_admin": () => import('..\\layouts\\admin.vue'  /* webpackChunkName: "layouts_admin" */).then(m => m.default || m),
 
-  "_blog": () => import('../layouts/blog.vue'  /* webpackChunkName: "layouts/blog" */).then(m => m.default || m),
+  "_blog": () => import('..\\layouts\\blog.vue'  /* webpackChunkName: "layouts_blog" */).then(m => m.default || m),
 
-  "_default": () => import('./layouts/default.vue'  /* webpackChunkName: "layouts/default" */).then(m => m.default || m)
+  "_default": () => import('./layouts/default.vue'  /* webpackChunkName: "layouts_default" */).then(m => m.default || m)
 
 }
 
