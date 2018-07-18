@@ -1,5 +1,5 @@
 <template>
-    <div @click="goHome" class="text">Spark's Blog</div>
+  <img @click="goHome" class="logo-img" src="http://blogcdn.sparklv.cn/blog_logo.png" alt="logo">
 </template>
 <script>
 export default {
@@ -12,12 +12,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.text {
+.logo-img {
   cursor: pointer;
-  color: #fff;
-  border: 1.5px solid #fff;
-  padding: 10px;
-  border-radius: 4px;
-  font-size: 18px;
+  width: 120px;
 }
 </style>
