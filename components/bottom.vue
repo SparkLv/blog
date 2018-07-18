@@ -7,6 +7,5 @@ export default {};
 <style lang="scss" scoped>
 .bottom-box {
   height: 200px;
-  background: #333;
 }
 </style>

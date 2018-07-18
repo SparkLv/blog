@@ -1,12 +1,12 @@
 <template>
   <div class="box">
-    <a :href="`/blog/pages/page?id=${blog.id}`">
+    <a :href="`/blog/page?id=${blog.id}`">
       <div class="img" :style="`background: url(${blog.imgUrl}) center/cover;`"></div>
     </a>
     <div class="content">
       <header class="head">
         <h3>
-          <a :href="`/blog/pages/page?id=${blog.id}`">{{blog.title}}</a>
+          <a :href="`/blog/page?id=${blog.id}`">{{blog.title}}</a>
         </h3>
       </header>
       <section class="desc">{{blog.remark}}</section>
@@ -49,14 +49,12 @@ $essay-box-width: 370px !default;
   flex-direction: column;
   overflow: hidden;
   background: #fff;
-  box-shadow: 8px 8px 5px #aaa;
   .img {
     width: 100%;
     height: 180px;
     cursor: pointer;
   }
   .content {
-    border-left: 1px solid #d1d2d3;
     height: 220px;
     box-sizing: border-box;
     padding: 0 10px;
@@ -90,6 +88,10 @@ $essay-box-width: 370px !default;
       }
     }
   }
+}
+
+.box:hover {
+  box-shadow: 8px 8px 5px #aaa;
 }
 
 @media screen and (max-width: 1000px) {

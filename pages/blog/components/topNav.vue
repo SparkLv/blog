@@ -1,33 +1,33 @@
 <template>
-    <nav class="top-nav">
-        <ul v-if="!collapse">
-            <li :class="type==='tech'?'active':''">
-                <nuxt-link to="blog?type=tech">Technology</nuxt-link>
-            </li>
-             <li :class="type==='finance'?'active':''">
-                <nuxt-link to="blog?type=finance">Finance</nuxt-link>
-            </li>
-            <li :class="type==='thinking'?'active':''">
-                <nuxt-link to="blog?type=thinking">Thinking</nuxt-link>
-            </li>
-        </ul>
-        <div v-else @click="showList=!showList" class="collapse-btn">
-            <hr>
-            <hr>
-            <hr>
-            <ul v-if="showList">
-                <li :class="type==='tech'?'activeLi':''">
-                    <nuxt-link to="blog?type=tech">Technology</nuxt-link>
-                </li>
-                <li :class="type==='finance'?'activeLi':''">
-                    <nuxt-link to="blog?type=finance">Finance</nuxt-link>
-                </li>
-                <li :class="type==='thinking'?'activeLi':''">
-                    <nuxt-link to="blog?type=thinking">Thinking</nuxt-link>
-                </li>
-            </ul>
-        </div>
-    </nav>
+  <nav class="nav-box">
+    <ul v-if="!collapse">
+      <li :class="type==='tech'?'active':''">
+        <nuxt-link to="blog?type=tech">Technology</nuxt-link>
+      </li>
+      <li :class="type==='finance'?'active':''">
+        <nuxt-link to="blog?type=finance">Finance</nuxt-link>
+      </li>
+      <li :class="type==='thinking'?'active':''">
+        <nuxt-link to="blog?type=thinking">Thinking</nuxt-link>
+      </li>
+    </ul>
+    <div v-else @click="showList=!showList" class="collapse-btn">
+      <hr>
+      <hr>
+      <hr>
+      <ul v-if="showList">
+        <li :class="type==='tech'?'activeLi':''">
+          <nuxt-link to="blog?type=tech">Technology</nuxt-link>
+        </li>
+        <li :class="type==='finance'?'activeLi':''">
+          <nuxt-link to="blog?type=finance">Finance</nuxt-link>
+        </li>
+        <li :class="type==='thinking'?'activeLi':''">
+          <nuxt-link to="blog?type=thinking">Thinking</nuxt-link>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </template>
 <script>
 export default {
@@ -56,21 +56,24 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.top-nav {
-  position: absolute;
-  right: 20px;
-  top: 20px;
+.nav-box {
   li {
     float: left;
     margin: 0 10px;
     padding-bottom: 8px;
     a {
-      color: #eee;
+      color: #333;
       font-size: 18px;
     }
   }
+  li:hover {
+    border-bottom: 4px solid #fff;
+  }
   .active {
-    border-bottom: 1px solid #fff;
+    a {
+      color: #333;
+    }
+    border-bottom: 4px solid #333;
   }
 }
 .collapse-btn {
