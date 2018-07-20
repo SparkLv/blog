@@ -1,33 +1,51 @@
+
 <template>
   <header class="header">
-    <nav class="top-nav">
-      <Logo />
+    <!-- <nav class="top-nav">
       <TopNav :type="type"></TopNav>
       <div :class="'top-nav-bg '+(scrollTop>(wHeight-50)?'top-nav-to-right':'top-nav-to-left')"></div>
     </nav>
-    <div @click="moveToCon" class="arrow-bottom"></div>
+    <div @click="moveToCon" class="arrow-bottom"></div> -->
+    <Logo />
+    <div :class="'ani-all-box '+ (scrollTop<200?allAniColorArr[allAniColorIndex]:'')">
+      <Mode1 :scrollTop="scrollTop" />
+      <Mode2 :scrollTop="scrollTop" />
+      <Mode3 :scrollTop="scrollTop" />
+      <Mode4 :scrollTop="scrollTop" />
+    </div>
   </header>
 </template>
 <script>
 import TopNav from "./topNav";
+import Mode1 from "./ani/mode1";
+import Mode2 from "./ani/mode2";
+import Mode3 from "./ani/mode3";
+import Mode4 from "./ani/mode4";
 export default {
   data() {
     return {
       textStyle: "",
       scrollTop: 0,
       wHeight: 0,
-      bgImgArr: ["", "tech", "finance", "thinking"]
+      bgImgArr: ["", "tech", "finance", "thinking"],
+      allAniColorArr: ["blue", "green", "orange", "yellow"],
+      allAniColorIndex: 0
     };
   },
   props: {
     type: { type: String, default: "" }
   },
   components: {
-    TopNav
+    TopNav,
+    Mode1,
+    Mode2,
+    Mode3,
+    Mode4
   },
   mounted() {
     window.addEventListener("scroll", this.bgImgScroll, false);
     this.wHeight = document.documentElement.clientHeight;
+    this.changeAniColor();
   },
   destroyed() {
     window.removeEventListener("scroll", this.bgImgScroll, false);
@@ -46,11 +64,21 @@ export default {
           clearInterval(this.moveTimeout);
         }
       }, timeInter);
+    },
+    changeAniColor() {
+      this.changeColorHandle = setInterval(() => {
+        if (this.allAniColorIndex === this.allAniColorArr.length - 1) {
+          this.allAniColorIndex = 0;
+        } else {
+          this.allAniColorIndex += 1;
+        }
+      }, 2000);
     }
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
+@import "./ani/ani.scss";
 @keyframes tobottom {
   from {
     bottom: 80px;
@@ -62,58 +90,7 @@ export default {
 .header {
   position: relative;
   height: 100vh;
-  .top-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    height: 60px;
-  }
-  .top-nav-bg {
-    position: absolute;
-    width: 200%;
-    top: 0;
-    left: 0;
-    height: 60px;
-    background: linear-gradient(90deg, transparent 50%,#F8F8FF 0);
-    z-index: -1;
-    transition: 0.5s all;
-  }
-  .top-nav-to-left {
-    left: 0;
-  }
-  .top-nav-to-right {
-    left: -100%;
-  }
-  .bg-image-box {
-    margin-top: 60px;
-    position: relative;
-    overflow: hidden;
-    z-index: -1;
-    .bg-image {
-      transition: 2.5s opacity;
-    }
-    .bg-show {
-      width: 100%;
-      opacity: 1;
-    }
-    .bg-hidden {
-      width: 0;
-      opacity: 0;
-    }
-    &::before {
-      content: "";
-      position: absolute;
-      display: block;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background: rgba(0, 0, 0, 0.15);
-    }
-  }
+  background: #191a1f;
   .arrow-bottom {
     position: absolute;
     cursor: pointer;
@@ -126,5 +103,30 @@ export default {
     transform: translateX(-50%) rotate(-135deg);
     animation: tobottom 1s infinite alternate ease-in-out;
   }
+}
+.ani-all-box {
+  width: 100%;
+  margin-top: 200px;
+}
+
+.ani-box {
+  position: relative;
+  width: 200px;
+  height: 550px;
+  margin: 30px;
+  display: inline-block;
+  border: 1px solid #aaa;
+}
+.ani-all-box.blue {
+  @include fillColor($mode1Color);
+}
+.ani-all-box.green {
+  @include fillColor($mode2Color);
+}
+.ani-all-box.orange {
+  @include fillColor($mode3Color);
+}
+.ani-all-box.yellow {
+  @include fillColor($mode4Color);
 }
 </style>
