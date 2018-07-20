@@ -2,6 +2,11 @@ $mode1Color: #4352fc;
 $mode2Color: #68df5e;
 $mode3Color: #f86250;
 $mode4Color: #fedf51;
+%center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 @mixin makeDot($r, $color) {
   position: absolute;
   width: $r;
@@ -27,24 +32,22 @@ $mode4Color: #fedf51;
   transition: all 2s;
 }
 @mixin fillColor($color) {
+  .cir {
+    border: 3px solid $color;
+  }
+  .dot-c,
+  .dot-small,
+  .line {
+    background: $color !important;
+  }
   .mode1 {
     .cir1,
     .cir2 {
       border: 3px solid $color;
     }
-    .dot-c,
-    .dot-small {
-      background: $color;
-    }
   }
   .mode2 {
-    .cir {
-      border: 3px solid $color;
-    }
-    .dot-angle,
-    .dot-small,
-    .dot-c,
-    .line {
+    .dot-angle {
       background: $color;
     }
   }
@@ -71,5 +74,21 @@ $mode4Color: #fedf51;
   }
   to {
     left: 100%;
+  }
+}
+@keyframes dotLineRun4 {
+  from {
+    right: 0;
+  }
+  to {
+    right: 100%;
+  }
+}
+@keyframes cirRotate1 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
