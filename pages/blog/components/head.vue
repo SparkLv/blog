@@ -12,6 +12,10 @@
       <Mode2 :scrollTop="scrollTop" />
       <Mode3 :scrollTop="scrollTop" />
       <Mode4 :scrollTop="scrollTop" />
+      <Mode1 :scrollTop="scrollTop" />
+      <Mode2 :scrollTop="scrollTop" />
+      <Mode3 :scrollTop="scrollTop" />
+      <Mode4 :scrollTop="scrollTop" />
     </div>
   </header>
 </template>
@@ -107,15 +111,16 @@ export default {
 .ani-all-box {
   width: 100%;
   margin-top: 200px;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .ani-box {
   position: relative;
   width: 200px;
   height: 550px;
-  margin: 30px;
+  margin: 10px;
   display: inline-block;
-  border: 1px solid #aaa;
 }
 .ani-all-box.blue {
   @include fillColor($mode1Color);
