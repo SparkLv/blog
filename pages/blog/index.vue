@@ -34,4 +34,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+article {
+  background: #f9f9f9;
+}
 </style>

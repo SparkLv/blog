@@ -1,137 +1,34 @@
 
 <template>
   <header class="header">
-    <!-- <nav class="top-nav">
-      <TopNav :type="type"></TopNav>
-      <div :class="'top-nav-bg '+(scrollTop>(wHeight-50)?'top-nav-to-right':'top-nav-to-left')"></div>
-    </nav>
-    <div @click="moveToCon" class="arrow-bottom"></div> -->
-    <Logo />
-    <div :class="'ani-all-box '+ (scrollTop<200?allAniColorArr[allAniColorIndex]:'')">
-      <Mode1 :scrollTop="scrollTop" />
-      <Mode2 :scrollTop="scrollTop" />
-      <Mode3 :scrollTop="scrollTop" />
-      <Mode4 :scrollTop="scrollTop" />
-      <Mode1 :scrollTop="scrollTop" />
-      <Mode2 :scrollTop="scrollTop" />
-      <Mode3 :scrollTop="scrollTop" />
-      <Mode4 :scrollTop="scrollTop" />
+    <topBar />
+    <div class="head-box">
+
     </div>
   </header>
 </template>
 <script>
-import TopNav from "./topNav";
-import Mode1 from "./ani/mode1";
-import Mode2 from "./ani/mode2";
-import Mode3 from "./ani/mode3";
-import Mode4 from "./ani/mode4";
+import TopBar from "./topBar";
 export default {
   data() {
-    return {
-      textStyle: "",
-      scrollTop: 0,
-      wHeight: 0,
-      bgImgArr: ["", "tech", "finance", "thinking"],
-      allAniColorArr: ["blue", "green", "orange", "yellow"],
-      allAniColorIndex: 0
-    };
+    return {};
   },
-  props: {
-    type: { type: String, default: "" }
-  },
+  props: {},
   components: {
-    TopNav,
-    Mode1,
-    Mode2,
-    Mode3,
-    Mode4
+    TopBar
   },
-  mounted() {
-    window.addEventListener("scroll", this.bgImgScroll, false);
-    this.wHeight = document.documentElement.clientHeight;
-    this.changeAniColor();
-  },
-  destroyed() {
-    window.removeEventListener("scroll", this.bgImgScroll, false);
-  },
-  methods: {
-    bgImgScroll() {
-      this.scrollTop = document.documentElement.scrollTop;
-    },
-    moveToCon() {
-      const step = this.wHeight / 20;
-      const timeInter = Math.floor(1000 / step);
-      this.moveTimeout = setInterval(() => {
-        if (document.documentElement.scrollTop < this.wHeight) {
-          document.documentElement.scrollTop += step;
-        } else {
-          clearInterval(this.moveTimeout);
-        }
-      }, timeInter);
-    },
-    changeAniColor() {
-      this.changeColorHandle = setInterval(() => {
-        if (this.allAniColorIndex === this.allAniColorArr.length - 1) {
-          this.allAniColorIndex = 0;
-        } else {
-          this.allAniColorIndex += 1;
-        }
-      }, 2000);
-    }
-  }
+  mounted() {},
+  destroyed() {},
+  methods: {}
 };
 </script>
-<style lang="scss">
-@import "./ani/ani.scss";
-@keyframes tobottom {
-  from {
-    bottom: 80px;
-  }
-  to {
-    bottom: 60px;
-  }
-}
+<style lang="scss" scoped>
 .header {
   position: relative;
-  height: 100vh;
-  background: #191a1f;
-  .arrow-bottom {
-    position: absolute;
-    cursor: pointer;
-    left: 50%;
-    bottom: 80px;
-    width: 40px;
-    height: 40px;
-    border-left: 5px solid #fff;
-    border-top: 5px solid #fff;
-    transform: translateX(-50%) rotate(-135deg);
-    animation: tobottom 1s infinite alternate ease-in-out;
+  .head-box {
+    margin-top:60px;
+    height:40vh;
+    background:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1532523898435&di=49ff3c73951677575b3f01313c9d21f2&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3Dfb88420679f08202399f997c23929198%2F5bafa40f4bfbfbedfda7905a72f0f736afc31f1c.jpg') no-repeat center center/cover;
   }
-}
-.ani-all-box {
-  width: 100%;
-  margin-top: 200px;
-  text-align: center;
-  white-space: nowrap;
-}
-
-.ani-box {
-  position: relative;
-  width: 200px;
-  height: 550px;
-  margin: 10px;
-  display: inline-block;
-}
-.ani-all-box.blue {
-  @include fillColor($mode1Color);
-}
-.ani-all-box.green {
-  @include fillColor($mode2Color);
-}
-.ani-all-box.orange {
-  @include fillColor($mode3Color);
-}
-.ani-all-box.yellow {
-  @include fillColor($mode4Color);
 }
 </style>
