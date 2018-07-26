@@ -42,15 +42,20 @@ export default {
   margin: 30px auto 50px;
   background: #fff;
   padding: 30px 80px;
-  border-left: 1px solid #e5e5e5;
-  border-right: 1px solid #e5e5e5;
-  border-bottom: 1px solid #e5e5e5;
   width: 75%;
+  box-sizing: border-box;
+  overflow: auto;
 }
 
 .essay >>> * {
   line-height: 28px;
   font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB",
     "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
+}
+@media screen and (max-width: 900px) {
+  .essay {
+    width: 90%;
+    padding: 30px 20px;
+  }
 }
 </style>

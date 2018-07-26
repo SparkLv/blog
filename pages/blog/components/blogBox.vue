@@ -92,7 +92,7 @@ export default {
     }
   }
 }
-@media screen and (max-width: 900px) {
+@media screen and(max-width:900px) {
   .blog-box {
     width: calc(100% - 40px);
   }

@@ -1,5 +1,5 @@
 import Vue from 'vue'
-
+import NuxtLoading from './components/nuxt-loading.vue'
 
 import '..\\assets\\common\\styles\\index.scss'
 
@@ -15,9 +15,9 @@ let layouts = {
 let resolvedLayouts = {}
 
 export default {
-  head: {"meta":[],"link":[],"style":[],"script":[]},
+  head: {"titleTemplate":"spark's blog","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"}],"link":[],"style":[],"script":[]},
   render(h, props) {
-    
+    const loadingEl = h('nuxt-loading', { ref: 'loading' })
     const layoutEl = h(this.layout || 'nuxt')
     const templateEl = h('div', {
       domProps: {
@@ -38,7 +38,7 @@ export default {
         id: '__nuxt'
       }
     }, [
-      
+      loadingEl,
       transitionEl
     ])
   },
@@ -60,7 +60,21 @@ export default {
     this.error = this.nuxt.error
   },
   
+  mounted () {
+    this.$loading = this.$refs.loading
+  },
+  watch: {
+    'nuxt.err': 'errorChanged'
+  },
+  
   methods: {
+    
+    errorChanged () {
+      if (this.nuxt.err && this.$loading) {
+        if (this.$loading.fail) this.$loading.fail()
+        if (this.$loading.finish) this.$loading.finish()
+      }
+    },
     
     setLayout (layout) {
       if (!layout || !resolvedLayouts['_' + layout]) layout = 'default'
@@ -89,7 +103,7 @@ export default {
     }
   },
   components: {
-    
+    NuxtLoading
   }
 }
 
