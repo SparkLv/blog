@@ -17,10 +17,10 @@ export default {
       percent: 0,
       show: false,
       canSuccess: true,
-      duration: ,
-      height: '',
-      color: '',
-      failedColor: '',
+      duration: 5000,
+      height: '2px',
+      color: 'black',
+      failedColor: 'red',
     }
   },
   methods: {
