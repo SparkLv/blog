@@ -48,16 +48,6 @@ export default {
   width: 75%;
 }
 
-.essay >>> h1 {
-  font-size: 40px;
-  line-height: 55px;
-  color: #c93c3e;
-  text-transform: uppercase;
-  font-family: "futura-pt", sans-serif;
-  font-weight: 900;
-  margin: 0 0 25px 0;
-}
-
 .essay >>> * {
   line-height: 28px;
   font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB",

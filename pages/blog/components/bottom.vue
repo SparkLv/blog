@@ -1,12 +1,10 @@
 <template>
-    <div class="bottom-box"></div>
+    <footer class="footer">
+    </footer>
 </template>
-<script>
-export default {};
-</script>
 <style lang="scss" scoped>
-.bottom-box {
-  height: 200px;
+.footer {
+  height: 600px;
   background: #333;
 }
 </style>

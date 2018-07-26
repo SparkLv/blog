@@ -1,24 +1,22 @@
 <template>
   <article class="essay-page">
-    <ImgBox :url="blog.imgUrl"></ImgBox>
+    <topBar />
+    <DetailHead :url="blog.imgUrl" :title="blog.title" />
     <ToolBar></ToolBar>
     <div class="container">
-      <Essay :text="blog.content"></Essay>
+      <Atc :text="blog.content" />
     </div>
     <ReadMoreBtn></ReadMoreBtn>
-    <!-- <CommentBox></CommentBox> -->
   </article>
 </template>
 <script>
-import Essay from "./components/essay";
-import ImgBox from "./components/imgBox";
+import topBar from "../components/topBar";
+import DetailHead from "./components/detailHead";
+import Atc from "./components/atc";
 import ToolBar from "./components/toolBar";
 import ReadMoreBtn from "./components/readMoreBtn";
-import CommentBox from "./components/commentBox";
-import axios from "axios";
 import { $blogs } from "~/plugins/api";
 export default {
-  layout:'blog',
   async asyncData({ query }) {
     const res = await $blogs.getBlogById(query.id);
     return {
@@ -31,11 +29,11 @@ export default {
     };
   },
   components: {
-    Essay,
-    ImgBox,
+    topBar,
+    Atc,
+    DetailHead,
     ToolBar,
-    ReadMoreBtn,
-    CommentBox
+    ReadMoreBtn
   }
 };
 </script>

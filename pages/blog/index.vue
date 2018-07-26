@@ -1,16 +1,17 @@
 <template>
   <article>
     <Head :type="type" />
-    <EssayBox :type="type" :blogs="blogs"></EssayBox>
+    <Content :blogs="blogs" />
+    <Bottom />
   </article>
 </template>
 <script>
 import Head from "./components/head";
-import EssayBox from "./components/essayBox";
+import Content from "./components/content";
+import Bottom from "./components/bottom";
 import { $blogs } from "~/plugins/api";
 
 export default {
-  layout: "blog",
   // async asyncData({ query }) {
   //   let blogs = [];
   //   const res = await $blogs.getBlogs();
@@ -24,7 +25,19 @@ export default {
   },
   components: {
     Head,
-    EssayBox
+    Content,
+    Bottom
+  },
+  mounted() {
+    this.getBlogs();
+  },
+  methods: {
+    async getBlogs() {
+      const res = await $blogs.getBlogs();
+      if (res) {
+        this.blogs = res;
+      }
+    }
   },
   beforeRouteUpdate(to, from, next) {
     this.type = to.query.type || "";
