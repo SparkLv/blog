@@ -1,24 +1,25 @@
 <template>
-    <div class="tool-box">
-        <el-form inline class="form" label-potision="left" label-width="100px">
-            <el-form-item label="标题：">
-                <el-input v-model="addData.title" class="title-input"></el-input>
-            </el-form-item>
-            <el-form-item label="图片：">
-                <el-input v-model="addData.imgUrl" class="title-input"></el-input>
-            </el-form-item>
-            <el-form-item label="描述：">
-                <el-input v-model="addData.remark" style="width:500px;" type="textarea" rows="4"></el-input>
-            </el-form-item>
-        </el-form>
-        <el-form class="form" label-potision="left" label-width="100px">
-            <TagGroup @setTags="setTags"></TagGroup>
-        </el-form>
-        <div class="admin-btn-group">
-            <el-button @click="$router.back()" class="sub-btn" type="danger">退 出</el-button>
-            <el-button @click="handleSure" class="sub-btn" type="primary">提 交</el-button>
-        </div>
+  <div class="tool-box">
+    <el-form inline class="form" label-potision="left" label-width="100px">
+      <el-form-item label="标题：">
+        <el-input v-model="addData.title" class="title-input"></el-input>
+      </el-form-item>
+      <el-form-item label="图片：">
+        <!-- <el-input v-model="addData.imgUrl" class="title-input"></el-input> -->
+        <UploadImg />
+      </el-form-item>
+      <el-form-item label="描述：">
+        <el-input v-model="addData.remark" style="width:500px;" type="textarea" rows="4"></el-input>
+      </el-form-item>
+    </el-form>
+    <el-form class="form" label-potision="left" label-width="100px">
+      <TagGroup @setTags="setTags"></TagGroup>
+    </el-form>
+    <div class="admin-btn-group">
+      <el-button @click="$router.back()" class="sub-btn" type="danger">退 出</el-button>
+      <el-button @click="handleSure" class="sub-btn" type="primary">提 交</el-button>
     </div>
+  </div>
 </template>
 <script>
 import TagGroup from "./tagGroup";
@@ -68,7 +69,7 @@ export default {
 <style lang="css" scoped>
 .tool-box {
   display: flex;
-  background: #EDEDED;
+  background: #ededed;
   /* color: #fff; */
   box-sizing: border-box;
 }
@@ -93,7 +94,7 @@ export default {
   height: 40px;
   margin: 0 5px;
 }
-.admin-btn-group{
-    padding:10px;
+.admin-btn-group {
+  padding: 10px;
 }
 </style>
