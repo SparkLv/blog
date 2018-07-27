@@ -1,11 +1,11 @@
 <template>
-    <div class="box">
-        <Tool :content="mdText"></Tool>
-        <div class="md-box">
-            <MD @mdScroll="mdScroll" @getMd="getMd"></MD>
-            <MDPre :top="top" :mdHTML="mdHTML"></MDPre>
-        </div>
+  <div class="box">
+    <Tool :content="mdText"></Tool>
+    <div class="md-box">
+      <MD @mdScroll="mdScroll" @getMd="getMd"></MD>
+      <MDPre :top="top" :mdHTML="mdHTML"></MDPre>
     </div>
+  </div>
 </template>
 <script>
 import Tool from "./components/tool";
@@ -42,7 +42,7 @@ export default {
   display: flex;
   flex-direction: column;
 }
-.md-box{
-    display:flex;
+.md-box {
+  display: flex;
 }
 </style>

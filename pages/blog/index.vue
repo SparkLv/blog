@@ -2,16 +2,16 @@
   <article>
     <Head :type="type" />
     <Content :blogs="blogs" />
-    <Bottom />
+    <Pag :current="current" :total="total" />
   </article>
 </template>
 <script>
 import Head from "./components/head";
 import Content from "./components/content";
-import Bottom from "./components/bottom";
 import { $blogs } from "~/plugins/api";
 
 export default {
+  layout:'blog',
   // async asyncData({ query }) {
   //   let blogs = [];
   //   const res = await $blogs.getBlogs();
@@ -20,23 +20,34 @@ export default {
   data() {
     return {
       type: "",
-      blogs: []
+      blogs: [],
+      total: 0,
+      current: 1
     };
   },
   components: {
     Head,
-    Content,
-    Bottom
+    Content
+  },
+  created() {
+    this.getPageIndex();
   },
   mounted() {
-    this.getBlogs();
+    this.getBlogs(this.current);
   },
   methods: {
-    async getBlogs() {
-      const res = await $blogs.getBlogs();
+    async getBlogs(pageNum = 1, pageSize = 8) {
+      const res = await $blogs.getBlogByPage({
+        pageNum,
+        pageSize
+      });
       if (res) {
-        this.blogs = res;
+        this.blogs = res.data;
+        this.total = res.total;
       }
+    },
+    getPageIndex() {
+      this.current = parseInt(this.$route.query.page,10) || 1;
     }
   },
   beforeRouteUpdate(to, from, next) {

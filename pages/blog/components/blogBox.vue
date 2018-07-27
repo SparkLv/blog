@@ -5,7 +5,7 @@
     </div>
     <div class="blog-box-body">
       <div class="blog-tag-bar">
-        <el-tag class="blog-tag" v-for="item in blog.tags.split(',')" :key="item">{{item}}</el-tag>
+        <el-tag class="blog-tag" v-for="item in blog.tagsO" :style="{color:item.color}" :color="item.bgColor" :key="item.id">{{item.name}}</el-tag>
         <span class="blog-date">{{blog.updateTime}}</span>
       </div>
       <div class="blog-desc-box">

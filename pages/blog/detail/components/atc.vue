@@ -1,5 +1,12 @@
 <template>
   <section class="essay">
+    <div class="oper-bar">
+      <nuxt-link class="back-btn" to="/blog">
+        <el-button type="text">
+          ← Back To Blog Home
+        </el-button>
+      </nuxt-link>
+    </div>
     <div v-html="md"></div>
   </section>
 </template>
@@ -33,6 +40,12 @@ export default {
 };
 </script>
 <style scoped>
+.oper-bar {
+  margin-bottom: 30px;
+}
+.oper-bar .el-button {
+  font-size: 18px;
+}
 * >>> .hljs {
   border: 1px solid #d0cdc7;
 }
@@ -45,6 +58,10 @@ export default {
   width: 75%;
   box-sizing: border-box;
   overflow: auto;
+}
+
+.essay >>> img {
+  max-width: 100%;
 }
 
 .essay >>> * {
