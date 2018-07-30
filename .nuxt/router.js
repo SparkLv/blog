@@ -83,22 +83,22 @@ export function createRouter () {
     routes: [
 		{
 			path: "/admin",
-			component: _50574424,
+			component: _39eff43f,
 			name: "admin"
 		},
 		{
 			path: "/blog",
-			component: _7ca32c16,
+			component: _0abaed08,
 			name: "blog"
 		},
 		{
 			path: "/admin/main",
-			component: _130fec15,
+			component: _01eee4df,
 			name: "admin-main"
 		},
 		{
 			path: "/blog/detail",
-			component: _0d7e62f8,
+			component: _75b39464,
 			name: "blog-detail"
 		},
 		{
@@ -108,7 +108,7 @@ export function createRouter () {
 		},
 		{
 			path: "/blog/components/blogBox",
-			component: _ed552354,
+			component: _1df9158a,
 			name: "blog-components-blogBox"
 		},
 		{
@@ -123,7 +123,7 @@ export function createRouter () {
 		},
 		{
 			path: "/blog/components/topBar",
-			component: _1fbe5a01,
+			component: _8da20766,
 			name: "blog-components-topBar"
 		},
 		{
@@ -138,7 +138,7 @@ export function createRouter () {
 		},
 		{
 			path: "/blog/detail/components/atc",
-			component: _44bc5a28,
+			component: _4821a76a,
 			name: "blog-detail-components-atc"
 		},
 		{
@@ -148,7 +148,7 @@ export function createRouter () {
 		},
 		{
 			path: "/admin/main/components/md",
-			component: _49227bfa,
+			component: _1c411986,
 			name: "admin-main-components-md"
 		},
 		{
@@ -163,7 +163,7 @@ export function createRouter () {
 		},
 		{
 			path: "/admin/main/components/uploadImg",
-			component: _390f8def,
+			component: _11e51568,
 			name: "admin-main-components-uploadImg"
 		},
 		{
@@ -173,7 +173,7 @@ export function createRouter () {
 		},
 		{
 			path: "/",
-			component: _3def2417,
+			component: _785816bf,
 			name: "index"
 		}
     ],
