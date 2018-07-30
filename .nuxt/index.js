@@ -12,7 +12,7 @@ import { setContext, getLocation, getRouteData } from './utils'
 import { createStore } from './store.js'
 
 /* Plugins */
-import nuxt_plugin_plugins_5c28c358 from 'nuxt_plugin_plugins_5c28c358' // Source: ../plugins
+import nuxt_plugin_plugins_5c28c358 from 'nuxt_plugin_plugins_5c28c358' // Source: ..\\plugins
 
 
 // Component: <no-ssr>
