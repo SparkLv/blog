@@ -1,10 +1,12 @@
 <template>
   <nav :class="['top-bar',fill?'fill':'']">
-    <span class="logo">LOGO</span>
+    <span class="logo">
+      <img src="/blog_logo.png" width="200" alt="logo">
+    </span>
     <ul class="nav-list">
-      <li>111</li>
+      <!-- <li>111</li>
       <li>222</li>
-      <li>333</li>
+      <li>333</li> -->
     </ul>
   </nav>
 </template>
@@ -25,7 +27,7 @@ export default {
   methods: {
     fillBar() {
       const top = document.documentElement.scrollTop;
-      this.fill = top > 0;
+      this.fill = top > 50;
     }
   }
 };
@@ -51,6 +53,6 @@ export default {
 }
 .fill {
   background: #fff;
-  border-bottom: 1px solid #d7d7d7;
+  box-shadow: 0 2px 2px #d7d7d7;
 }
 </style>

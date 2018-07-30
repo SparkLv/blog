@@ -5,8 +5,7 @@
         <el-input v-model="addData.title" class="title-input"></el-input>
       </el-form-item>
       <el-form-item label="图片：">
-        <!-- <el-input v-model="addData.imgUrl" class="title-input"></el-input> -->
-        <UploadImg />
+        <UploadImg @setUrl="setUrl" />
       </el-form-item>
       <el-form-item label="描述：">
         <el-input v-model="addData.remark" style="width:500px;" type="textarea" rows="4"></el-input>
