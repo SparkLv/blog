@@ -1,21 +1,41 @@
 <template>
-    <section class="content-box">
-        <div class="blog-container">
-            <BlogBox v-for="item in blogs" :key="item.id" :blog="item" />
-        </div>
-        <SideBar />
-    </section>
+  <section class="content-box">
+    <div class="blog-container">
+      <BlogBoxNav :tags="tags" />
+      <BlogBox v-for="item in blogs" :key="item.id" :blog="item" />
+    </div>
+    <SideBar :tags="tags" />
+  </section>
 </template>
 <script>
 import BlogBox from "./blogBox";
 import SideBar from "./sideBar";
+import BlogBoxNav from "./blogBoxNav";
+import { $tags } from "~/plugins/api";
 export default {
-  components: {
-    BlogBox,
-    SideBar
+  data() {
+    return {
+      tags: []
+    };
   },
   props: {
     blogs: Array
+  },
+  components: {
+    BlogBox,
+    SideBar,
+    BlogBoxNav
+  },
+  created() {
+    this.getTags();
+  },
+  methods: {
+    async getTags() {
+      const res = await $tags.getAllTags();
+      if (res) {
+        this.tags = res;
+      }
+    }
   }
 };
 </script>

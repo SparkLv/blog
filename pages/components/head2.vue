@@ -1,47 +1,27 @@
 
 <template>
-  <div style="background:#191a1f">
-    <div class="box">
-      <div :class="'ani-all-box '+ (scrollTop<200?allAniColorArr[allAniColorIndex]:'')">
-        <Mode1 :scrollTop="scrollTop" />
-        <Mode2 :scrollTop="scrollTop" />
-        <Mode3 :scrollTop="scrollTop" />
-        <Mode4 :scrollTop="scrollTop" />
-        <Mode1 :scrollTop="scrollTop" />
-        <Mode2 :scrollTop="scrollTop" />
-        <Mode3 :scrollTop="scrollTop" />
-        <Mode4 :scrollTop="scrollTop" />
-      </div>
+  <header class="header">
+    <div class="header-bar">
+      
     </div>
-    <div class="sel-box">
-      <div class="sel-box-item">
-        <span class="sel-num">1</span>
-        <span class="sel-text">
-          <a href="/blog">Blog</a>
-        </span>
-      </div>
-      <div class="sel-box-item">
-        <span class="sel-num">2</span>
-
-        <span class="sel-text">
-          <a href="#">None</a>
-        </span>
-      </div>
-      <div class="sel-box-item">
-        <span class="sel-num">3</span>
-
-        <span class="sel-text">
-          <a href="#">None</a>
-        </span>
-      </div>
-    </div>
-  </div>
+    <!-- <div :class="'ani-all-box '+ (scrollTop<200?allAniColorArr[allAniColorIndex]:'')">
+      <Mode1 :scrollTop="scrollTop" />
+      <Mode2 :scrollTop="scrollTop" />
+      <Mode3 :scrollTop="scrollTop" />
+      <Mode4 :scrollTop="scrollTop" />
+      <Mode1 :scrollTop="scrollTop" />
+      <Mode2 :scrollTop="scrollTop" />
+      <Mode3 :scrollTop="scrollTop" />
+      <Mode4 :scrollTop="scrollTop" />
+    </div> -->
+  </header>
 </template>
 <script>
-import Mode1 from "./components/ani/mode1";
-import Mode2 from "./components/ani/mode2";
-import Mode3 from "./components/ani/mode3";
-import Mode4 from "./components/ani/mode4";
+// import TopNav from "./topNav";
+import Mode1 from "./ani/mode1";
+import Mode2 from "./ani/mode2";
+import Mode3 from "./ani/mode3";
+import Mode4 from "./ani/mode4";
 export default {
   data() {
     return {
@@ -57,6 +37,7 @@ export default {
     type: { type: String, default: "" }
   },
   components: {
+    // TopNav,
     Mode1,
     Mode2,
     Mode3,
@@ -98,7 +79,7 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "./components/ani/ani.scss";
+@import "./ani/ani.scss";
 @keyframes tobottom {
   from {
     bottom: 80px;
@@ -107,10 +88,10 @@ export default {
     bottom: 60px;
   }
 }
-.box {
+.header {
   position: relative;
-  height: 800px;
-  overflow-x: hidden;
+  height: 100vh;
+  // background: #191a1f;
   .arrow-bottom {
     position: absolute;
     cursor: pointer;
@@ -154,39 +135,4 @@ export default {
 .ani-all-box.yellow {
   @include fillColor($mode4Color);
 }
-.sel-box {
-  display: flex;
-  height: 300px;
-  padding-bottom: 50px;
-  .sel-box-item {
-    flex: 1;
-    border-left: 1px solid #eee;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-    text-align: center;
-    line-height: 300px;
-    &:hover {
-      .sel-num {
-        display: none;
-      }
-      .sel-text {
-        display: inline;
-      }
-    }
-    .sel-num {
-      font-size: 100px;
-      color: #fff;
-    }
-    .sel-text {
-      display: none;
-      font-size: 100px;
-      color: #fff;
-      cursor: pointer;
-    }
-  }
-  .sel-box-item:nth-child(3) {
-    // border-right: none;
-  }
-}
 </style>
-

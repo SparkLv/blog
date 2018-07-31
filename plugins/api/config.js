@@ -1,10 +1,16 @@
 import axios from "axios";
 import Vue from "vue";
 
-const ip = process.env.NODE_ENV === "production"?'http://118.24.6.102:2420':'http://localhost:2420';
+const ip =
+  process.env.NODE_ENV === "production"
+    ? "http://118.24.6.102:2420"
+    : "http://localhost:2420";
 
 axios.interceptors.request.use(config => {
-  // config.headers.Token = "abc";
+  const token = localStorage.getItem("token");
+  if (token) {
+    config.headers.token = token;
+  }
   return config;
 });
 

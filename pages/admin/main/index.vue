@@ -12,6 +12,8 @@ import Tool from "./components/tool";
 import MD from "./components/md";
 import MDPre from "./components/mdPre";
 import marked from "marked";
+import { $users } from "~/plugins/api";
+import axios from "axios";
 export default {
   layout: "admin",
   data() {
@@ -26,6 +28,14 @@ export default {
     MD,
     MDPre
   },
+  mounted() {
+    const token = localStorage.getItem("token");
+    if (token) {
+      this.validToken(token);
+    } else {
+      this.$router.push("/amdin");
+    }
+  },
   methods: {
     getMd(text) {
       this.mdHTML = marked(text);
@@ -33,6 +43,16 @@ export default {
     },
     mdScroll(top) {
       this.top = top;
+    },
+    async validToken(token) {
+      const res = await $users.validToken();
+      if (res.code != 1) {
+        this.$message({
+          type: "warning",
+          message: res.message
+        });
+        this.$router.push("/admin");
+      }
     }
   }
 };

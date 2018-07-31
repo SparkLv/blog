@@ -6,7 +6,7 @@
       </a>
     </li>
     <li v-for="item in Math.ceil(total/pageSize)" :key="item" :class="['num-box',current===item?'active':'']">
-      <a class="num" :href="`blog?page=${item}`">{{item}}</a>
+      <a class="num" :href="`blog?page=${item}`+setParam()">{{item}}</a>
     </li>
     <li :class="['num-box',current===Math.ceil(total/pageSize)?'disabled':'']">
       <a class="num" :href="current===Math.ceil(total/pageSize)?'javascript:return false;':`blog?page=${current+1}`">
@@ -29,6 +29,11 @@ export default {
     current: {
       type: Number,
       default: 1
+    }
+  },
+  methods: {
+    setParam() {
+      return this.$route.query.tagId ? `&tagId=${this.$route.query.tagId}` : "";
     }
   }
 };
