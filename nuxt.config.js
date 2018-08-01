@@ -1,6 +1,10 @@
 module.exports = {
   css: [{ src: "~assets/common/styles/index.scss", lang: "scss" }],
-  plugins: [{ src: "~plugins", ssr: true }],
+  plugins: [
+    { src: "~plugins", ssr: true },
+    //google analysics
+    { src: "~plugins/ga.js", ssr: false }
+  ],
   head: {
     titleTemplate: "spark's blog",
     meta: [

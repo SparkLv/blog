@@ -33,16 +33,16 @@
     "layouts_admin.d1ba2386b8a5afbd9743.js",
     "layouts_default.f278d07bde8a03c154af.js",
     "vendor.69373ebefebd64557cfe.js",
-    "app.f584260eb4baf36c779c.js",
-    "manifest.13c6f9fe0985ff88de2e.js",
+    "app.05420cfa1756e38f3271.js",
+    "manifest.0dcdafe737f9aa026719.js",
     "LICENSES",
     "index.spa.html",
     "index.ssr.html"
   ],
   "initial": [
-    "manifest.13c6f9fe0985ff88de2e.js",
+    "manifest.0dcdafe737f9aa026719.js",
     "vendor.69373ebefebd64557cfe.js",
-    "app.f584260eb4baf36c779c.js"
+    "app.05420cfa1756e38f3271.js"
   ],
   "async": [
     "pages_components_ani_mode1.288d18e3a439de72c666.js",
@@ -811,6 +811,9 @@
       31,
       1,
       18
+    ],
+    "246a5807": [
+      32
     ],
     "d59f7dbe": [
       31,

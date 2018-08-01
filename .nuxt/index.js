@@ -13,6 +13,7 @@ import { createStore } from './store.js'
 
 /* Plugins */
 import nuxt_plugin_plugins_5c28c358 from 'nuxt_plugin_plugins_5c28c358' // Source: ..\\plugins
+import nuxt_plugin_ga_fb0a2534 from 'nuxt_plugin_ga_fb0a2534' // Source: ..\\plugins\\ga.js (ssr: false)
 
 
 // Component: <no-ssr>
@@ -153,6 +154,9 @@ async function createApp (ssrContext) {
   
   if (typeof nuxt_plugin_plugins_5c28c358 === 'function') await nuxt_plugin_plugins_5c28c358(app.context, inject)
   
+  if (process.browser) { 
+    if (typeof nuxt_plugin_ga_fb0a2534 === 'function') await nuxt_plugin_ga_fb0a2534(app.context, inject)
+  }
 
   // If server-side, wait for async component to be resolved first
   if (process.server && ssrContext && ssrContext.url) {
