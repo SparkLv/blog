@@ -1,7 +1,8 @@
 <template>
-    <div class="md-pre-outerbox">
-        <div ref="prebox" class="md-prebox" v-html="mdHTML"></div>
-    </div>
+  <div class="md-pre-outerbox">
+    <div style="height:50px;background:#ddd"></div>
+    <div ref="prebox" class="md-prebox" v-html="mdHTML"></div>
+  </div>
 </template>
 <script>
 import hljs from "highlightjs";
@@ -26,9 +27,9 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="css" scoped>
 .md-pre-outerbox {
-  flex: 3;
+  flex: 1;
 }
 .md-prebox {
   font-family: "Menlo", "DejaVu Sans Mono", "Liberation Mono", "Consolas",
@@ -42,5 +43,8 @@ export default {
   box-sizing: border-box;
   overflow: auto;
   background: #fefefe;
+}
+.md-prebox >>> img {
+  max-width: 100%;
 }
 </style>

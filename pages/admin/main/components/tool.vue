@@ -15,7 +15,7 @@
       <TagGroup @setTags="setTags"></TagGroup>
     </el-form>
     <div class="admin-btn-group">
-      <el-button @click="$router.back()" class="sub-btn" type="danger">退 出</el-button>
+      <el-button @click="back" class="sub-btn" type="danger">退 出</el-button>
       <el-button @click="handleSure" class="sub-btn" type="primary">提 交</el-button>
     </div>
   </div>
@@ -61,6 +61,10 @@ export default {
         });
         document.location.reload();
       }
+    },
+    back() {
+      localStorage.removeItem("token");
+      this.$router.back();
     }
   }
 };

@@ -1,7 +1,7 @@
 
 <template>
-  <div style="background:#191a1f">
-    <div class="box">
+  <div class="home-box">
+    <!-- <div class="box">
       <div :class="'ani-all-box '+ (scrollTop<200?allAniColorArr[allAniColorIndex]:'')">
         <Mode1 :scrollTop="scrollTop" />
         <Mode2 :scrollTop="scrollTop" />
@@ -12,7 +12,7 @@
         <Mode3 :scrollTop="scrollTop" />
         <Mode4 :scrollTop="scrollTop" />
       </div>
-    </div>
+    </div> -->
     <div class="sel-box">
       <div class="sel-box-item">
         <span class="sel-num">1</span>
@@ -154,15 +154,20 @@ export default {
 .ani-all-box.yellow {
   @include fillColor($mode4Color);
 }
+.home-box {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+}
 .sel-box {
   display: flex;
   height: 300px;
   padding-bottom: 50px;
+  flex: 1;
   .sel-box-item {
     flex: 1;
-    border-left: 1px solid #eee;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
+    box-shadow: 0 0 2px #333;
     text-align: center;
     line-height: 300px;
     &:hover {
@@ -175,12 +180,10 @@ export default {
     }
     .sel-num {
       font-size: 100px;
-      color: #fff;
     }
     .sel-text {
       display: none;
       font-size: 100px;
-      color: #fff;
       cursor: pointer;
     }
   }
