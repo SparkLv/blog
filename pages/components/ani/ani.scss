@@ -1,0 +1,94 @@
+$mode1Color: #4352fc;
+$mode2Color: #68df5e;
+$mode3Color: #f86250;
+$mode4Color: #fedf51;
+%center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin makeDot($r, $color) {
+  position: absolute;
+  width: $r;
+  height: $r;
+  border-radius: $r;
+  background: $color;
+  transition: all 2s;
+}
+
+@mixin makeCir($r, $bold, $color) {
+  position: absolute;
+  width: $r;
+  height: $r;
+  border-radius: $r;
+  border: $bold solid $color;
+  transition: all 2s;
+}
+@mixin makeLine($width, $color) {
+  position: absolute;
+  width: $width;
+  height: 3px;
+  background: $color;
+  transition: all 2s;
+}
+@mixin fillColor($color) {
+  .cir {
+    border: 3px solid $color;
+  }
+  .dot-c,
+  .dot-small,
+  .line {
+    background: $color !important;
+  }
+  .mode1 {
+    .cir1,
+    .cir2 {
+      border: 3px solid $color;
+    }
+  }
+  .mode2 {
+    .dot-angle {
+      background: $color;
+    }
+  }
+}
+@keyframes dotLineRun1 {
+  from {
+    left: 20%;
+  }
+  to {
+    left: 80%;
+  }
+}
+@keyframes dotLineRun2 {
+  from {
+    right: 20%;
+  }
+  to {
+    right: 80%;
+  }
+}
+@keyframes dotLineRun3 {
+  from {
+    left: 0;
+  }
+  to {
+    left: 100%;
+  }
+}
+@keyframes dotLineRun4 {
+  from {
+    right: 0;
+  }
+  to {
+    right: 100%;
+  }
+}
+@keyframes cirRotate1 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

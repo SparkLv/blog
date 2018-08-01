@@ -3,29 +3,17 @@
     <div class="side-bar-tag-group">
       <h3>分类:</h3>
       <div class="tag-box">
-        <el-tag class="side-bar-tag" v-for="item in tags" :key="item.id" :color="item.bgColor" :style="{color:item.color}">{{item.name}}</el-tag>
+        <a class="side-bar-tag" v-for="item in tags" :key="item.id" :href="`blog?tagId=${item.id}`">
+          <el-tag :color="item.bgColor" :style="{color:item.color}">{{item.name}}</el-tag>
+        </a>
       </div>
     </div>
   </div>
 </template>
 <script>
-import { $tags } from "~/plugins/api";
 export default {
-  data() {
-    return {
-      tags: []
-    };
-  },
-  created() {
-    this.getTags();
-  },
-  methods: {
-    async getTags() {
-      const res = await $tags.getAllTags();
-      if (res) {
-        this.tags = res;
-      }
-    }
+  props: {
+    tags: Array
   }
 };
 </script>
@@ -46,6 +34,7 @@ export default {
   .tag-box {
     padding: 20px;
     .side-bar-tag {
+      display: inline-block;
       margin: 0 10px 10px 0;
       cursor: pointer;
     }

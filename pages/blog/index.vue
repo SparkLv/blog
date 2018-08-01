@@ -11,7 +11,7 @@ import Content from "./components/content";
 import { $blogs } from "~/plugins/api";
 
 export default {
-  layout:'blog',
+  layout: "blog",
   // async asyncData({ query }) {
   //   let blogs = [];
   //   const res = await $blogs.getBlogs();
@@ -37,17 +37,21 @@ export default {
   },
   methods: {
     async getBlogs(pageNum = 1, pageSize = 8) {
-      const res = await $blogs.getBlogByPage({
+      const params = {
         pageNum,
         pageSize
-      });
+      };
+      if (this.$route.query.tagId) {
+        params.tagId = this.$route.query.tagId;
+      }
+      const res = await $blogs.getBlogByPage(params);
       if (res) {
         this.blogs = res.data;
         this.total = res.total;
       }
     },
     getPageIndex() {
-      this.current = parseInt(this.$route.query.page,10) || 1;
+      this.current = parseInt(this.$route.query.page, 10) || 1;
     }
   },
   beforeRouteUpdate(to, from, next) {
