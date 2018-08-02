@@ -20,6 +20,15 @@ export default {
       blog: res
     };
   },
+  head () {
+    return {
+      title: this.blog.title,
+      meta: [
+        { hid: 'description'+Math.random(), name: 'description', content: this.blog.remark},
+        { hid: 'keyword'+Math.random(), name: 'keywords', content: this.blog.keyword },        
+      ]
+    }
+  },
   data() {
     return {
       blog: {}

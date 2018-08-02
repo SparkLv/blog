@@ -6,7 +6,6 @@ module.exports = {
     { src: "~plugins/ga.js", ssr: false }
   ],
   head: {
-    titleTemplate: "spark's blog",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" }

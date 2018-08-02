@@ -4,11 +4,14 @@
       <el-form-item label="标题：">
         <el-input v-model="addData.title" class="title-input"></el-input>
       </el-form-item>
+      <el-form-item label="关键字：">
+        <el-input v-model="addData.keyword" class="title-input"></el-input>
+      </el-form-item>
       <el-form-item label="图片：">
         <UploadImg @setUrl="setUrl" />
       </el-form-item>
       <el-form-item label="描述：">
-        <el-input v-model="addData.remark" style="width:500px;" type="textarea" rows="4"></el-input>
+        <el-input v-model="addData.remark" style="width:300px;" type="textarea" rows="3"></el-input>
       </el-form-item>
     </el-form>
     <el-form class="form" label-potision="left" label-width="100px">
@@ -83,6 +86,9 @@ export default {
 .form >>> label {
   font-size: 20px;
   /* color: #fff; */
+}
+.title-input {
+  width: 200px;
 }
 .title-input >>> .el-input__inner {
   border: none;
