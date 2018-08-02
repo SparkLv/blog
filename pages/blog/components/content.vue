@@ -11,31 +11,18 @@
 import BlogBox from "./blogBox";
 import SideBar from "./sideBar";
 import BlogBoxNav from "./blogBoxNav";
-import { $tags } from "~/plugins/api";
 export default {
   data() {
-    return {
-      tags: []
-    };
+    return {};
   },
   props: {
-    blogs: Array
+    blogs: Array,
+    tags: Array
   },
   components: {
     BlogBox,
     SideBar,
     BlogBoxNav
-  },
-  created() {
-    this.getTags();
-  },
-  methods: {
-    async getTags() {
-      const res = await $tags.getAllTags();
-      if (res) {
-        this.tags = res;
-      }
-    }
   }
 };
 </script>

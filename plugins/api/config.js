@@ -7,9 +7,11 @@ const ip =
     : "http://localhost:2420";
 
 axios.interceptors.request.use(config => {
-  const token = localStorage.getItem("token");
-  if (token) {
-    config.headers.token = token;
+  if (process.client) {
+    const token = localStorage.getItem("token");
+    if (token) {
+      config.headers.token = token;
+    }
   }
   return config;
 });
