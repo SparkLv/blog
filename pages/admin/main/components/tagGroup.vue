@@ -1,9 +1,9 @@
 <template>
   <div style="display:inline-block">
     <el-form-item label="已选择：">
-      <el-tag v-for="(item,index) in selTags" closable @close="delTag(index)" :key="index" :style="{margin:'5px',cursor:'pointer',color:item.color,backgroundColor:item.bgColor}">{{item.name}}</el-tag>
+      <el-tag v-for="(item,index) in selTags" :closable="!nowBlog" @close="delTag(index)" :key="index" :style="{margin:'5px',cursor:'pointer',color:item.color,backgroundColor:item.bgColor}">{{item.name}}</el-tag>
     </el-form-item>
-    <div>
+    <div v-if="!nowBlog">
       <el-tabs class="tag-tab" v-model="code" @tab-click="tabChange">
         <el-tab-pane label="Technology" name="1">
           <span @click="sel(index,1)" v-for="(item,index) in tags.tags1" :key="index">
@@ -41,11 +41,25 @@ export default {
       addTagShow: false
     };
   },
+  props: {
+    nowBlog: Object
+  },
   components: {
     AddTag
   },
   created() {
     this.getTags();
+  },
+  watch: {
+    nowBlog() {
+      if (this.nowBlog) {
+        this.selTags = this.nowBlog.tagsO;
+        this.$emit("setTags", this.nowBlog.tags);
+      } else {
+        this.selTags = [];
+        this.$emit("setTags", '');
+      }
+    }
   },
   methods: {
     async getTags() {

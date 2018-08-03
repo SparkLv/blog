@@ -18,8 +18,17 @@ export default {
       mdText: ""
     };
   },
+  props: {
+    nowBlog: Object
+  },
   components: {
     UploadImg
+  },
+  watch: {
+    nowBlog() {
+      this.mdText = this.nowBlog ? this.nowBlog.content : "";
+      this.runMd();
+    }
   },
   methods: {
     runMd() {

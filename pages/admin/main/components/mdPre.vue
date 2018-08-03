@@ -1,6 +1,10 @@
 <template>
   <div class="md-pre-outerbox">
-    <div style="height:50px;background:#ddd"></div>
+    <div style="height:50px;background:#ddd">
+      <el-select style="margin-top:5px;width:250px" clearable v-model="nowBlog" @change="changeBlog">
+        <el-option v-for="(item,index) in blogs" :key="index" :label="item.title" :value="index"></el-option>
+      </el-select>
+    </div>
     <div ref="prebox" class="md-prebox" v-html="mdHTML"></div>
   </div>
 </template>
@@ -8,9 +12,15 @@
 import hljs from "highlightjs";
 import "highlightjs/styles/ocean.css";
 export default {
+  data() {
+    return {
+      nowBlog: ""
+    };
+  },
   props: {
     mdHTML: String,
-    top: Number
+    top: Number,
+    blogs: Array
   },
   watch: {
     mdHTML() {
@@ -23,6 +33,15 @@ export default {
     },
     top() {
       this.$refs["prebox"].scrollTop = this.top;
+    }
+  },
+  methods: {
+    changeBlog(index) {
+      if (index || index == 0) {
+        this.$emit("setBlog", this.blogs[index]);
+      } else {
+        this.$emit("setBlog", null);
+      }
     }
   }
 };
