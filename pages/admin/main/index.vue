@@ -1,9 +1,9 @@
 <template>
   <div class="box">
-    <Tool :content="mdText"></Tool>
+    <Tool :nowBlog="nowBlog" :content="mdText"></Tool>
     <div class="md-box">
-      <MD @mdScroll="mdScroll" @getMd="getMd"></MD>
-      <MDPre :top="top" :mdHTML="mdHTML"></MDPre>
+      <MD :nowBlog="nowBlog" @mdScroll="mdScroll" @getMd="getMd"></MD>
+      <MDPre @setBlog="setBlog" :blogs="blogs" :top="top" :mdHTML="mdHTML"></MDPre>
     </div>
   </div>
 </template>
@@ -13,6 +13,7 @@ import MD from "./components/md";
 import MDPre from "./components/mdPre";
 import marked from "marked";
 import { $users } from "~/plugins/api";
+import { $blogs } from "~/plugins/api";
 import axios from "axios";
 export default {
   layout: "admin",
@@ -20,13 +21,18 @@ export default {
     return {
       mdHTML: "",
       mdText: "",
-      top: 0
+      top: 0,
+      blogs: [],
+      nowBlog: null
     };
   },
   components: {
     Tool,
     MD,
     MDPre
+  },
+  created() {
+    this.getBlogs();
   },
   mounted() {
     const token = localStorage.getItem("token");
@@ -37,6 +43,13 @@ export default {
     }
   },
   methods: {
+    async getBlogs() {
+      const res = await $blogs.getBlogs();
+      this.blogs = res;
+    },
+    setBlog(blog) {
+      this.nowBlog = blog;
+    },
     getMd(text) {
       this.mdHTML = marked(text);
       this.mdText = text;

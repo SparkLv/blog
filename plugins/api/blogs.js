@@ -19,6 +19,10 @@ export default class CMDB extends config {
     const path = `/${pub}`;
     return this.comPost(path, data);
   }
+  static modBlog(id,data){
+    const path = `/${pub}/${id}`
+    return this.comPatch(path,data);
+  }
   static upLoad(data){
     const path = `/blog/upload`;
     return this.comPost(path,data);

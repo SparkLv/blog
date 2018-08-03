@@ -11,11 +11,11 @@
         <UploadImg @setUrl="setUrl" />
       </el-form-item>
       <el-form-item label="描述：">
-        <el-input v-model="addData.remark" style="width:300px;" type="textarea" rows="3"></el-input>
+        <el-input v-model="addData.remark" style="width:450px;" type="textarea" rows="3"></el-input>
       </el-form-item>
     </el-form>
     <el-form class="form" label-potision="left" label-width="100px">
-      <TagGroup @setTags="setTags"></TagGroup>
+      <TagGroup :nowBlog="nowBlog" @setTags="setTags"></TagGroup>
     </el-form>
     <div class="admin-btn-group">
       <el-button @click="back" class="sub-btn" type="danger">退 出</el-button>
@@ -34,11 +34,24 @@ export default {
     };
   },
   props: {
-    content: String
+    content: String,
+    nowBlog: Object
   },
   components: {
     TagGroup,
     UploadImg
+  },
+  watch: {
+    nowBlog() {
+      if (this.nowBlog) {
+        this.addData.keyword = this.nowBlog.keyword;
+        this.addData.remark = this.nowBlog.remark;
+        this.addData.imgUrl = this.nowBlog.imgUrl;
+        this.$set(this.addData, "title", this.nowBlog.title);
+      } else {
+        this.addData = {};
+      }
+    }
   },
   methods: {
     setTags(tags) {
@@ -53,7 +66,14 @@ export default {
         now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate();
       return date;
     },
-    async handleSure() {
+    handleSure() {
+      if (this.nowBlog) {
+        this.mod();
+      } else {
+        this.add();
+      }
+    },
+    async add() {
       this.addData.updateTime = this.markTime();
       this.addData.content = this.content;
       const res = await $blogs.addBlog(this.addData);
@@ -61,6 +81,18 @@ export default {
         this.$message({
           type: "success",
           message: "新增成功"
+        });
+        document.location.reload();
+      }
+    },
+    async mod() {
+      this.addData.updateTime = this.markTime();
+      this.addData.content = this.content;
+      const res = await $blogs.modBlog(this.nowBlog.id,this.addData);
+      if (res) {
+        this.$message({
+          type: "success",
+          message: "修改成功"
         });
         document.location.reload();
       }
@@ -76,7 +108,6 @@ export default {
 .tool-box {
   display: flex;
   background: #ededed;
-  /* color: #fff; */
   box-sizing: border-box;
 }
 .form {
@@ -85,7 +116,6 @@ export default {
 }
 .form >>> label {
   font-size: 20px;
-  /* color: #fff; */
 }
 .title-input {
   width: 200px;
@@ -94,7 +124,6 @@ export default {
   border: none;
   border-bottom: 1px solid #333;
   background: transparent;
-  /* color: #fff; */
   font-size: 20px;
 }
 .sub-btn {
