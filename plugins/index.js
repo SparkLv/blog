@@ -1,6 +1,5 @@
 import Vue from "vue";
 import "element-ui/lib/theme-chalk/index.css";
-import Api from "./api/index";
 
 import Logo from "../components/global/logo";
 import Pag from "../components/global/pag";
