@@ -5,12 +5,14 @@
     <div class="container">
       <Atc :text="blog.content" />
     </div>
+    <Comment></Comment>
   </article>
 </template>
 <script>
 import topBar from "../components/topBar";
 import DetailHead from "./components/detailHead";
 import Atc from "./components/atc";
+import Comment from './components/comment';
 import { $blogs } from "~/plugins/api";
 export default {
   layout:'blog',
@@ -37,6 +39,7 @@ export default {
   components: {
     topBar,
     Atc,
+    Comment,
     DetailHead
   }
 };

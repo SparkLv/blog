@@ -1,10 +1,8 @@
 <template>
   <div class="md-pre-outerbox">
-    <div style="height:50px;background:#ddd">
-      <el-select style="margin-top:5px;width:250px" clearable v-model="nowBlog" @change="changeBlog">
-        <el-option v-for="(item,index) in blogs" :key="index" :label="item.title" :value="index"></el-option>
-      </el-select>
-    </div>
+    <el-select placeholder="修改文章" class="sel" clearable v-model="nowBlog" @change="changeBlog">
+      <el-option v-for="(item,index) in blogs" :key="index" :label="item.title" :value="index"></el-option>
+    </el-select>
     <div ref="prebox" class="md-prebox" v-html="mdHTML"></div>
   </div>
 </template>
@@ -55,15 +53,21 @@ export default {
     "Ubuntu Mono", "Courier New", "andale mono", "lucida console", monospace;
   letter-spacing: 2px;
   width: 100%;
-  min-height: 1000px;
+  height: calc(100vh - 115px);
   font-size: 16px;
   line-height: 20px;
-  padding: 20px;
+  padding:6px 20px;
   box-sizing: border-box;
   overflow: auto;
   background: #fefefe;
 }
 .md-prebox >>> img {
   max-width: 100%;
+}
+.sel {
+  position: absolute;
+  top: 10px;
+  left: 550px;
+  z-index: 11;
 }
 </style>

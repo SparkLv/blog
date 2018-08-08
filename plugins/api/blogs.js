@@ -27,4 +27,24 @@ export default class CMDB extends config {
     const path = `/blog/upload`;
     return this.comPost(path,data);
   }
+  static getWatch(id){
+    const path = `/watch/${id}`;
+    return this.comGet(path);
+  }
+  static setWatch(id){
+    const path = `/watch/${id}`;
+    return this.comPost(path)
+  }
+  static getComments(id){
+    const path = `/comment/${id}`;
+    return this.comGet(path);
+  }
+  static setComments(id,data){
+    const path = `/comment/${id}`;
+    return this.comPost(path,data)
+  }
+  static setGood(id,data){
+    const path = `/good/${id}`;
+    return this.comPost(path,data);
+  }
 }

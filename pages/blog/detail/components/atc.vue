@@ -6,6 +6,16 @@
           ← Back To Blog Home
         </el-button>
       </nuxt-link>
+      <div @click="hasGoodType?false:setGood(false)" :class="{bad:true,['good-dis']:hasGoodType==1,['bad-active']:hasGoodType==2}">
+        <i class="iconfont icon-bad"></i>
+      </div>
+      <div @click="hasGoodType?false:setGood(true)" :class="{good:true,['good-dis']:hasGoodType==2,['good-active']:hasGoodType==1}">
+        <i class="iconfont icon-zan1"></i>
+      </div>
+      <div class="watch">
+        <i class="iconfont icon-eye"></i>
+        <span>{{watchNum}}</span>
+      </div>
     </div>
     <div v-html="md"></div>
   </section>
@@ -14,10 +24,14 @@
 import marked from "marked";
 import hljs from "highlightjs";
 import "highlightjs/styles/github.css";
+import { $blogs } from "~/plugins/api";
+
 export default {
   data() {
     return {
-      md: ""
+      md: "",
+      watchNum: 0,
+      hasGoodType: false
     };
   },
   props: {
@@ -35,6 +49,48 @@ export default {
           hljs.highlightBlock(item);
         });
       }, 0);
+      this.getWatch();
+      this.setWatch();
+      this.judgeGood();
+    },
+    async getWatch() {
+      const res = await $blogs.getWatch(this.$route.query.id);
+      if (res) {
+        this.watchNum = res.length ? res[0].num : 0;
+      }
+    },
+    setWatch() {
+      $blogs.setWatch(this.$route.query.id);
+    },
+    judgeGood() {
+      let typeObj = localStorage.getItem("goodType");
+      if (typeObj) {
+        typeObj = JSON.parse(typeObj);
+        if (typeObj[this.$route.query.id]) {
+          this.hasGoodType = typeObj[this.$route.query.id];
+        } else {
+          this.hasGoodType = false;
+        }
+      } else {
+        this.hasGoodType = false;
+      }
+    },
+    async setGood(type) {
+      const res = await $blogs.setGood(this.$route.query.id, { type });
+      if (res) {
+        const ltype = type ? 1 : 2;
+        if (localStorage.getItem("goodType")) {
+          const obj = JSON.parse(localStorage.getItem("goodType"));
+          obj[this.$route.query.id] = ltype;
+          localStorage.setItem("goodType", JSON.stringify(obj));
+        } else {
+          localStorage.setItem(
+            "goodType",
+            JSON.stringify({ [this.$route.query.id]: ltype })
+          );
+        }
+      }
+      this.judgeGood();
     }
   }
 };
@@ -45,6 +101,52 @@ export default {
 }
 .oper-bar .el-button {
   font-size: 18px;
+}
+
+.watch {
+  float: right;
+  display: flex;
+  align-items: center;
+}
+
+.watch > i {
+  color: #606060;
+  font-size: 30px;
+  margin-right: 5px;
+}
+.watch > span {
+  color: #707070;
+}
+.good,
+.bad {
+  float: right;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+.good > i {
+  color: #333;
+  font-size: 30px !important;
+  cursor: pointer;
+}
+.bad > i {
+  color: #333;
+  font-size: 30px !important;
+  cursor: pointer;
+}
+.good-dis > i {
+  color: #eee;
+  cursor: not-allowed;
+}
+
+.bad-active > i {
+  color: #d33621;
+  cursor: not-allowed;
+}
+
+.good-active > i {
+  color: #ffb600;
+  cursor: not-allowed;
 }
 * >>> .hljs {
   border: 1px solid #d0cdc7;
@@ -69,7 +171,7 @@ export default {
   font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB",
     "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1150px) {
   .essay {
     width: 90%;
     padding: 30px 20px;
