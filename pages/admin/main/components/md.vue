@@ -1,17 +1,11 @@
 <template>
   <div class="md-outerbox">
-    <div class="tool-bar">
-      <UploadImg @change="insertImg" />
-    </div>
-    <textarea ref="input-box" @scroll="mdScroll" @input="runMd" v-model="mdText" class="md-box">
+    <textarea @scroll="mdScroll" @input="runMd" v-model="mdText" class="md-box">
     </textarea>
   </div>
 </template>
 <script>
 import marked from "marked";
-import { $blogs } from "~/plugins/api";
-import UploadImg from "./tools/upload";
-
 export default {
   data() {
     return {
@@ -19,15 +13,16 @@ export default {
     };
   },
   props: {
-    nowBlog: Object
-  },
-  components: {
-    UploadImg
+    nowBlog: Object,
+    imgMdText: String
   },
   watch: {
     nowBlog() {
       this.mdText = this.nowBlog ? this.nowBlog.content : "";
       this.runMd();
+    },
+    imgMdText() {
+      this.mdText = this.imgMdText;
     }
   },
   methods: {
@@ -36,18 +31,6 @@ export default {
     },
     mdScroll(e) {
       this.$emit("mdScroll", e.target.scrollTop);
-    },
-    async insertImg(e) {
-      const file = e.target.files[0];
-      const fd = new FormData();
-      fd.append("file", file);
-      const res = await $blogs.upLoad(fd);
-      const pos = this.$refs["input-box"].selectionStart;
-      const s1 = this.mdText.slice(0, pos);
-      const sl = this.mdText.length;
-      const s2 = this.mdText.slice(pos, sl);
-      this.mdText =
-        s1 + `\n![${file.name}](http://blogcdn.sparklv.cn/${file.name})` + s2;
     }
   }
 };
@@ -61,7 +44,7 @@ export default {
     "Ubuntu Mono", "Courier New", "andale mono", "lucida console", monospace;
   letter-spacing: 2px;
   width: 100%;
-  min-height: 1000px;
+  height: calc(100vh - 115px);
   border: none;
   font-size: 16px;
   line-height: 20px;
@@ -70,12 +53,11 @@ export default {
   resize: none;
   outline: none;
   overflow: auto;
-  border-right: 15px solid #eee;
+  border-right: 3px solid #eee;
 }
-.tool-bar {
-  height: 50px;
-  line-height: 50px;
-  padding: 0 10px;
-  background: #ddd;
+.upload-btn {
+  position: absolute;
+  top: -45px;
+  left: 10px;
 }
 </style>
