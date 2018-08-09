@@ -19,7 +19,7 @@
     "pages_components_head2.8f3e97603344ae0cde96.js",
     "pages_blog_components_content.c556631b2065f711ecac.js",
     "pages_blog_components_head.58b5df91399e821e5ad4.js",
-    "pages_index.043671756a20f9597f3b.js",
+    "pages_index.2aaf1859d727939bca50.js",
     "pages_admin_main_components_mdPre.47ddabaa7c2cb9727485.js",
     "layouts_blog.885589484b9db56e2fb4.js",
     "img/iconfont.4d1a554.svg",
@@ -40,13 +40,13 @@
     "pages_components_atom.7125450ec84fc698d0e2.js",
     "vendor.0ff78ee26ceac9a33e98.js",
     "app.292763745c050f3573b0.js",
-    "manifest.b381c918e34763b645cf.js",
+    "manifest.2b090bcdf4583244ce4f.js",
     "LICENSES",
     "index.spa.html",
     "index.ssr.html"
   ],
   "initial": [
-    "manifest.b381c918e34763b645cf.js",
+    "manifest.2b090bcdf4583244ce4f.js",
     "vendor.0ff78ee26ceac9a33e98.js",
     "app.292763745c050f3573b0.js"
   ],
@@ -65,7 +65,7 @@
     "pages_components_head2.8f3e97603344ae0cde96.js",
     "pages_blog_components_content.c556631b2065f711ecac.js",
     "pages_blog_components_head.58b5df91399e821e5ad4.js",
-    "pages_index.043671756a20f9597f3b.js",
+    "pages_index.2aaf1859d727939bca50.js",
     "pages_admin_main_components_mdPre.47ddabaa7c2cb9727485.js",
     "layouts_blog.885589484b9db56e2fb4.js",
     "pages_components_introBox.64dd50537f38f800477c.js",
