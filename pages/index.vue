@@ -66,6 +66,7 @@ $text-color: rgb(15, 136, 235);
 section {
   text-align: center;
   position: relative;
+  height:100vh;
   background-color: rgb(247, 250, 252);
 }
 .title {
