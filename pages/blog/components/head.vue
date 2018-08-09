@@ -3,7 +3,7 @@
   <header class="header">
     <topBar />
     <HeadCan />
-    <span class="header-title">Modesty Benefits</span>
+    <span class="header-title">Often With Awe</span>
   </header>
 </template>
 <script>
