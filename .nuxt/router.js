@@ -152,9 +152,9 @@ export function createRouter () {
 			name: "blog-components-blogBox"
 		},
 		{
-			path: "/components/ani/mode4",
-			component: _7da5b294,
-			name: "components-ani-mode4"
+			path: "/blog/components/topBar",
+			component: _1fbe5a01,
+			name: "blog-components-topBar"
 		},
 		{
 			path: "/blog/components/head",
@@ -167,9 +167,9 @@ export function createRouter () {
 			name: "blog-components-sideBar"
 		},
 		{
-			path: "/blog/components/topBar",
-			component: _1fbe5a01,
-			name: "blog-components-topBar"
+			path: "/components/ani/mode1",
+			component: _7dfa3f9a,
+			name: "components-ani-mode1"
 		},
 		{
 			path: "/components/ani/mode2",
@@ -182,14 +182,14 @@ export function createRouter () {
 			name: "blog-components-blogBoxNav"
 		},
 		{
-			path: "/blog/detail/components/detailHead",
-			component: _353979a5,
-			name: "blog-detail-components-detailHead"
+			path: "/blog/components/blogBox",
+			component: _ed552354,
+			name: "blog-components-blogBox"
 		},
 		{
-			path: "/blog/detail/components/atc",
-			component: _44bc5a28,
-			name: "blog-detail-components-atc"
+			path: "/admin/main/components/tagGroup",
+			component: _0dabcbb0,
+			name: "admin-main-components-tagGroup"
 		},
 		{
 			path: "/admin/main/components/uploadImg",
