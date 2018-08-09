@@ -152,9 +152,9 @@ export function createRouter () {
 			name: "blog-components-blogBox"
 		},
 		{
-			path: "/blog/components/sideBar",
-			component: _48bd7549,
-			name: "blog-components-sideBar"
+			path: "/components/ani/mode4",
+			component: _7da5b294,
+			name: "components-ani-mode4"
 		},
 		{
 			path: "/blog/components/head",
