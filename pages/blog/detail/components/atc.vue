@@ -17,8 +17,8 @@
         <span>{{watchNum}}</span>
       </div>
     </div>
-    <div :class="!full?'hide-full':''" v-html="md"></div>
-    <div v-if="!full" class="open-all-btn">
+    <div :class="!full&&needCol?'hide-full':''" v-html="md"></div>
+    <div v-if="!full&&needCol" class="open-all-btn">
       <el-button type="text" style="font-size:18px" @click="showAll">查看全部>>></el-button>
     </div>
   </section>
@@ -43,6 +43,11 @@ export default {
   },
   mounted() {
     this.init();
+  },
+  computed: {
+    needCol() {
+      return this.md.length > 1500;
+    }
   },
   methods: {
     init() {
@@ -179,7 +184,7 @@ export default {
     "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
 }
 .hide-full {
-  height: 150vh;
+  height: 1000px;
   overflow: hidden;
 }
 .open-all-btn {
