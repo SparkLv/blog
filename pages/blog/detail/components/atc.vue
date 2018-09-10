@@ -17,7 +17,10 @@
         <span>{{watchNum}}</span>
       </div>
     </div>
-    <div v-html="md"></div>
+    <div :class="!full?'hide-full':''" v-html="md"></div>
+    <div v-if="!full" class="open-all-btn">
+      <el-button type="text" style="font-size:18px" @click="showAll">查看全部>>></el-button>
+    </div>
   </section>
 </template>
 <script>
@@ -31,7 +34,8 @@ export default {
     return {
       md: "",
       watchNum: 0,
-      hasGoodType: false
+      hasGoodType: false,
+      full: false
     };
   },
   props: {
@@ -91,6 +95,9 @@ export default {
         }
       }
       this.judgeGood();
+    },
+    showAll() {
+      this.full = true;
     }
   }
 };
@@ -170,6 +177,14 @@ export default {
   line-height: 28px;
   font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB",
     "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
+}
+.hide-full {
+  height: 150vh;
+  overflow: hidden;
+}
+.open-all-btn {
+  text-align: center;
+  margin-top: 20px;
 }
 @media screen and (max-width: 1150px) {
   .essay {

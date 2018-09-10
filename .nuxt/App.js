@@ -3,7 +3,7 @@ import NuxtLoading from './components/nuxt-loading.vue'
 
 import '..\\assets\\common\\styles\\index.scss'
 
-import '..\\node_modules\\_animate.css@3.7.0@animate.css\\animate.min.css'
+import '..\\node_modules\\animate.css\\animate.min.css'
 
 
 let layouts = {
