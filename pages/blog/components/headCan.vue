@@ -27,6 +27,9 @@ export default {
     can.addEventListener("mousemove", this.setCursor, false);
     can.addEventListener("mouseout", this.resetCursor, false);
   },
+  destroyed(){
+    window.cancelAnimationFrame(this.raf)
+  },
   methods: {
     setCursor(e) {
       this.cursor = {
@@ -87,7 +90,7 @@ export default {
         }
       });
       this.calcline();
-      window.requestAnimationFrame(this.ballRun);
+      this.raf = window.requestAnimationFrame(this.ballRun);
     },
     getDistance(item1, item2) {
       const len =
